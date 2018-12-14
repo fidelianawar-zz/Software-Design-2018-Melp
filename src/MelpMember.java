@@ -12,7 +12,7 @@ public class MelpMember {
 		this.name = name;
 	}
 	
-	public RestaurantReview createReview(Restaurant restaurantUnderReview, String review, int rating) {
+	public RestaurantReview createReview(String restaurantUnderReview, String review, int rating) {
 		return new RestaurantReview(review, rating, restaurantUnderReview);
 	}
 	

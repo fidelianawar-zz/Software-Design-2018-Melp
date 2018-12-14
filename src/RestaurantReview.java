@@ -5,7 +5,7 @@
 public class RestaurantReview {
 	private String content;
 	private int rating;
-	private Restaurant restaurantUnderReview;
+	private String restaurantUnderReview;
 	private String[] vulgarWords = {"crappy", "stupid", "dumb", "idiot", "dummies", "loser", "fool", "ass", "imbecile"};
 	
 	/**
@@ -14,7 +14,7 @@ public class RestaurantReview {
 	 * @param the rating of the restaurant
 	 * @param the name of the restaurant under review
 	 */
-	public RestaurantReview(String content, int rating, Restaurant restaurantUnderReview) {
+	public RestaurantReview(String content, int rating, String restaurantUnderReview) {
 		this.content = content;
 		this.rating = rating;
 		this.restaurantUnderReview = restaurantUnderReview;

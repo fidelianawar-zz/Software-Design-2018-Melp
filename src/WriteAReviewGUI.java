@@ -3,11 +3,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-public class Main extends Application {
-    @Override
+
+public class WriteAReviewGUI extends Application {
+     @Override
     public void start(Stage primaryStage) throws Exception {
-        // just load fxml file and display it in the stage:
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainUI.fxml"));
+         // just load fxml file and display it in the stage:
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

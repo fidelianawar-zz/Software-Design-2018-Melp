@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="MyController2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Button layoutX="178.0" layoutY="335.0" mnemonicParsing="false" onAction="#onButtonPress" text="Submit" />
+    <MenuButton layoutX="116.0" layoutY="139.0" mnemonicParsing="false" text="Choose One">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#recordValue1" text="Action 1" />
+        <MenuItem mnemonicParsing="false" onAction="#recordValue2" text="Action 2" />
+      </items>
+    </MenuButton>
+  </children>
+</AnchorPane>

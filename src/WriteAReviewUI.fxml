@@ -5,22 +5,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="1000.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="WriteAReviewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="WriteAReviewController">
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutX="69.0" layoutY="101.0" text="Restaurant to be Reviewed:" />
-    <TextField layoutX="489.0" layoutY="101.0" prefWidth="243.0" text="Restaurant Name" />
-    <MenuButton layoutX="470.0" layoutY="197.0" mnemonicParsing="false" text="Star Ratings">
+    <TextField fx:id="restaurant" layoutX="489.0" layoutY="101.0" prefWidth="243.0" text="Restaurant Name" />
+    <MenuButton layoutX="489.0" layoutY="197.0" mnemonicParsing="false" prefWidth="245.0" text="Number of Stars">
       <items>
-        <MenuItem mnemonicParsing="false" text="1 Star" />
-        <MenuItem mnemonicParsing="false" text="2 Stars" />
-        <MenuItem mnemonicParsing="false" text="3 Stars" />
-        <MenuItem mnemonicParsing="false" text="4 Stars" />
-        <MenuItem mnemonicParsing="false" text="5 Stars" />
+        <MenuItem mnemonicParsing="false" onAction="#OneStarReview" text="1" />
+        <MenuItem mnemonicParsing="false" onAction="#TwoStarReview" text="2" />
+        <MenuItem mnemonicParsing="false" onAction="#ThreeStarReview" text="3" />
+        <MenuItem mnemonicParsing="false" onAction="#FourStarReview" text="4" />
+        <MenuItem mnemonicParsing="false" onAction="#FiveStarReview" text="5" />
       </items>
     </MenuButton>
     <Label layoutX="69.0" layoutY="203.0" text="Restaurant Rating (out of 5)" />
-    <TextArea layoutX="69.0" layoutY="295.0" prefHeight="518.0" prefWidth="663.0" text="Type your review here" wrapText="true" />
-    <Button layoutX="278.0" layoutY="879.0" mnemonicParsing="false" text="Submit Review" />
+    <Button layoutX="278.0" layoutY="478.0" mnemonicParsing="false" onAction="#submitRestaurantReview" text="Submit Review" />
+    <TextArea fx:id="review" layoutX="69.0" layoutY="280.0" prefHeight="135.0" prefWidth="663.0" text="Type your restaurant review here" wrapText="true" />
   </children>
 </AnchorPane>

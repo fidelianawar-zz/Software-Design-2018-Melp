@@ -21,7 +21,7 @@ public class RestaurantReview {
 	}
 	
 	/**
-	 * Detemines whether a request should be approved or denied for vulgarity
+	 * Detemines whether a request should be approved or denied for vulgar content
 	 * @return true if the request is approved
 	 */
 	public boolean approveRequest() {

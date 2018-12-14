@@ -9,7 +9,7 @@
   <!-- TODO Add Nodes -->
   <children>
     <TextArea fx:id="restaurantReview" editable="false" prefHeight="250.0" prefWidth="500.0" wrapText="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-    <Button layoutX="122.0" layoutY="299.0" mnemonicParsing="false" onAction="#viewMyProfile" text="View My Profile" />
-    <Button layoutX="81.0" layoutY="403.0" mnemonicParsing="false" onAction="#writeNewReview" text="Write Another Review" />
+    <Button mnemonicParsing="false" onAction="#viewMyProfile" text="View My Profile" AnchorPane.bottomAnchor="148.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="299.0" />
+    <Button mnemonicParsing="false" onAction="#writeNewReview" text="Write Another Review" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="403.0" />
   </children>
 </AnchorPane>

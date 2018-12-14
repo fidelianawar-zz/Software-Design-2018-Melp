@@ -14,6 +14,11 @@ public class ViewReviewController {
 		this.current_review = current_review;
 	}
 	
+	/**
+	 * This is the "View My Profile" button after submitting a review
+	 * @param event - this is the button press action
+	 * @throws Exception - in case the gui being created doesn't exist (which is impossible)
+	 */
 	@FXML
 	void viewMyProfile(ActionEvent event) throws Exception {
 		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -22,6 +27,11 @@ public class ViewReviewController {
 		next_gui.start(next_stage);
 	}
 	
+	/**
+	 * This is the "Write a new review" button after submitting a review
+	 * @param event - this is the button press action
+	 * @throws Exception - in case the gui being created doesn't exist (which is impossible)
+	 */
 	@FXML
 	void writeNewReview(ActionEvent event) throws Exception {
 		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

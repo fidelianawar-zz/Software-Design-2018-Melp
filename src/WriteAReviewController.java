@@ -33,7 +33,11 @@ public class WriteAReviewController {
     @FXML
     private TextArea review;
 
-
+    /**
+	 * This is the "Submit review" button. It makes sure the review isn't vulgar, then moves to the ViewReview page
+	 * @param event - this is the button press action
+	 * @throws Exception - in case the gui being created doesn't exist (which is impossible)
+	 */
     @FXML
     void submitRestaurantReview(ActionEvent event) throws IOException {
     	restaurant_name = restaurant.getText();

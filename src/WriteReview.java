@@ -1,5 +1,5 @@
 /**
-* This class defines the command to write reviews.
+* This class defines the command for users to write reviews.
 */
 public class WriteReview implements Command {
 	private String review;

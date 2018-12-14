@@ -1,6 +1,6 @@
 
 /**
-* The RestaurantReview class creates the type RestaurantReview.
+* The RestaurantReview class creates the object type RestaurantReview.
 */
 public class RestaurantReview {
 

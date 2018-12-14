@@ -8,7 +8,7 @@ import org.junit.Test;
 public class VulgarWordsTests {
 
 	/**
-	 * Tests that a vulgar review is disapproved
+	 * Tests that a vulgar review is disapproved correctly
 	 */
 	@Test
 	public void disapprovedReview() {

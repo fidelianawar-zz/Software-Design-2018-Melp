@@ -11,4 +11,9 @@ public class MelpMember {
 	public MelpMember(String name) {
 		this.name = name;
 	}
+	
+	public RestaurantReview createReview(Restaurant restaurantUnderReview, String review, int rating) {
+		return new RestaurantReview(review, rating, restaurantUnderReview);
+	}
+	
 }

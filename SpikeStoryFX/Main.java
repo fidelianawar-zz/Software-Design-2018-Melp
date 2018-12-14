@@ -13,6 +13,9 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    
+    
+    
      // main method to support non-JavaFX-aware environments:
      public static void main(String[] args) {
         // starts the FX toolkit, instantiates this class, 

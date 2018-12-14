@@ -5,9 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ViewReviewController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
-    <Label fx:id="lblTest" layoutX="215.0" layoutY="210.0" />
+    <TextArea fx:id="restaurantReview" editable="false" prefHeight="250.0" prefWidth="500.0" wrapText="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <Button layoutX="122.0" layoutY="299.0" mnemonicParsing="false" text="View My Profile" />
+    <Button layoutX="81.0" layoutY="403.0" mnemonicParsing="false" onAction="#writeNewReview" text="Write Another Review" />
   </children>
 </AnchorPane>

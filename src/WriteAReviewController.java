@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -20,6 +21,9 @@ public class WriteAReviewController {
     @FXML
     private ResourceBundle resources;
 
+    @FXML
+    private Label headerLabel;
+    
     @FXML
     private URL location;
     
@@ -37,20 +41,18 @@ public class WriteAReviewController {
     	//String value = ((Button)event.getSource()).getText();
     	RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
     	if (new_review.approveRequest()) {
-    		System.out.println("Review Accepted");
-	    	System.out.println("Restaurant is: " + restaurant_name);
-	    	System.out.println("Number of Stars is: " + Integer.toString(number_of_stars));
-	    	System.out.println("Review is: " + restaurant_review);
 	    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    	next_stage.setTitle("View Review");
 	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
-	        Parent root = loader.load();
 	        ViewReviewController controller = new ViewReviewController();
 	        controller.setReview(new_review);
+	        loader.setController(controller);
+	        Parent root = loader.load();
 	        Scene scene = new Scene(root);
 	    	next_stage.setScene(scene);
     	}
     	else {
-    		System.out.println("Review Denied");
+    		headerLabel.setText("Your review was vulgar. Try again");
     	}
     }
     
@@ -81,8 +83,7 @@ public class WriteAReviewController {
 
     @FXML
     void initialize() {
-
-
+    	headerLabel.setText("Review a Restaurant");
     }
 
 }

@@ -3,6 +3,24 @@
 * The RestaurantReview class creates the type RestaurantReview.
 */
 public class RestaurantReview {
+
+	private String content;
+	private int rating;
+	private String restaurantUnderReview;
+	private String[] vulgarWords = {"crappy", "stupid", "dumb", "idiot", "dummies", "loser", "fool", "ass", "imbecile"};
+	
+	/**
+	 * Constructor for the RestaurantReview class. Initializes instance variable of name.
+	 * @param the review content
+	 * @param the rating of the restaurant
+	 * @param the name of the restaurant under review
+	 */
+	public RestaurantReview(String content, int rating, String restaurantUnderReview) {
+		this.content = content;
+		this.rating = rating;
+		this.restaurantUnderReview = restaurantUnderReview;
+	}
+	
 	public String getContent() {
 		return content;
 	}
@@ -26,23 +44,6 @@ public class RestaurantReview {
 	public void setRestaurantUnderReview(String restaurantUnderReview) {
 		this.restaurantUnderReview = restaurantUnderReview;
 	}
-
-	private String content;
-	private int rating;
-	private String restaurantUnderReview;
-	private String[] vulgarWords = {"crappy", "stupid", "dumb", "idiot", "dummies", "loser", "fool", "ass", "imbecile"};
-	
-	/**
-	 * Constructor for the RestaurantReview class. Initializes instance variable of name.
-	 * @param the review content
-	 * @param the rating of the restaurant
-	 * @param the name of the restaurant under review
-	 */
-	public RestaurantReview(String content, int rating, String restaurantUnderReview) {
-		this.content = content;
-		this.rating = rating;
-		this.restaurantUnderReview = restaurantUnderReview;
-	}
 	
 	/**
 	 * Detemines whether a request should be approved or denied for vulgar content
@@ -60,6 +61,10 @@ public class RestaurantReview {
 		return true;	
 	}
 	
+	/**
+	 * Converts the review to a string
+	 * @return the String representation of the review
+	 */
 	public String toString() {
 		String reviewString = "Review of " + restaurantUnderReview + ": " + content + "\n" + "Rating: " + rating + " stars";
 		return reviewString;

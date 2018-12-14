@@ -23,6 +23,9 @@ public class Restaurant {
 		this.name = name;
 	}
 	
+	/**
+	 * Creates a table for the restaurant
+	 */
 	public void createRestaurantTable() {
 		try (
 				Connection sqlConnection = DriverManager.getConnection(
@@ -43,6 +46,10 @@ public class Restaurant {
 			e.printStackTrace(); 
 		}
 	}
+	
+	/**
+	 * Creates a table for the reviewer
+	 */
 	public void createReviewerTable() {
 		try (
 				Connection sqlConnection = DriverManager.getConnection(

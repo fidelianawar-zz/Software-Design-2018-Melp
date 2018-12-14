@@ -60,5 +60,10 @@ public class RestaurantReview {
 		return true;	
 	}
 	
+	public String toString() {
+		String reviewString = "Review of " + restaurantUnderReview + ": " + content + "\n" + "Rating: " + rating + " stars";
+		return reviewString;
+	}
+	
 }
 	

@@ -83,7 +83,7 @@ public class WriteAReviewController {
 
     @FXML
     void initialize() {
-    	headerLabel.setText("Review a Restaurant");
+    	headerLabel.setText("Melp: Review a Restaurant");
     }
 
 }

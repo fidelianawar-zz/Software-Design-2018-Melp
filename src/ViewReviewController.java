@@ -15,6 +15,14 @@ public class ViewReviewController {
 	}
 	
 	@FXML
+	void viewMyProfile(ActionEvent event) throws Exception {
+		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		next_stage.setTitle("My Account");
+		UserProfileGUI next_gui = new UserProfileGUI();
+		next_gui.start(next_stage);
+	}
+	
+	@FXML
 	void writeNewReview(ActionEvent event) throws Exception {
 		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		next_stage.setTitle("Review a Restaurant");

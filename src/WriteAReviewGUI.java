@@ -12,7 +12,7 @@ public class WriteAReviewGUI extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Review a Restaurant");
+        primaryStage.setTitle("Melp: Review a Restaurant");
         primaryStage.show();
     }
      // main method to support non-JavaFX-aware environments:

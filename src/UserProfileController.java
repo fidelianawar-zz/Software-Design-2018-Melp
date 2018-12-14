@@ -14,7 +14,11 @@ public class UserProfileController {
     @FXML
     private URL location;
 
-
+    /**
+	 * This is the "Write New Review" button on the user profile page. It takes the user to the WriteANewReview page
+	 * @param event - this is the button press action
+	 * @throws Exception - in case the gui being created doesn't exist (which is impossible)
+	 */
     @FXML
     void writeNewReview(ActionEvent event) throws Exception {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

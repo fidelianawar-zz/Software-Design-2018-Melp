@@ -34,11 +34,14 @@ public class CreateMelpDatabase {
 			stmt.execute("create database if not exists MelpDatabase");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 			stmt = conn.createStatement();
-			if (!checkIfTableExists("reviews", conn)) {
-				stmt.execute("create table Reviews (restaurant varchar(50), stars int, review varchar(500));");
-			}
-			if (checkIfTableExists("users", conn)) {
+			if (!checkIfTableExists("users", conn)) {
 				stmt.execute("create table Users (username varchar(50), password varchar(50), primary key(username));");
+			}
+			if (!checkIfTableExists("restaurants", conn)) {
+				stmt.execute("create table Restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, primary key (RestaurantName));");
+			}
+			if (!checkIfTableExists("reviews", conn)) {
+				stmt.execute("create table Reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
 			}
 		}
 		catch (SQLException e) {

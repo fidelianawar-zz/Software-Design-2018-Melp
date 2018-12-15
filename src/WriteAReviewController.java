@@ -48,10 +48,11 @@ public class WriteAReviewController {
     	try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 			Statement stmt = conn.createStatement();
+			String member = "'" + reviewer.getName() + "', ";
 			String restaurant = "'" + curr_rev.getRestaurantUnderReview() + "', ";
 			String stars = "'" + Integer.toString(curr_rev.getRating()) + "', ";
 			String review = "'" + curr_rev.getContent() + "'";
-			String command = restaurant + stars + review;
+			String command = member + restaurant + stars + review;
 			stmt.execute("insert into reviews values (" + command + ");");
     	} catch (SQLException e) {
 			e.printStackTrace();

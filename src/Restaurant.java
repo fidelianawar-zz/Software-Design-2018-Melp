@@ -26,7 +26,7 @@ public class Restaurant {
 	public void createRestaurantTable() {
 		try (
 				Connection sqlConnection = DriverManager.getConnection(
-						"jdbc:mysql://localhost:" + PORT_NUMBER + "/ebookshop?user=root&password=root");
+						"jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 				Statement stmt = sqlConnection.createStatement();
 				) {
 			String reviewsTable = "create table Reviews ( " +

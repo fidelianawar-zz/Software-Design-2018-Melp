@@ -1,10 +1,9 @@
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * The MelpMember class creates instances of Melp members.
  */
-public class MelpMember implements Serializable{
+public class MelpMember{
 	private String name;
 	private String password;
 	private ArrayList<RestaurantReview> my_reviews = new ArrayList<RestaurantReview>();

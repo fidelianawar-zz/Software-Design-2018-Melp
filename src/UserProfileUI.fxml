@@ -15,7 +15,7 @@
     <Label fx:id="username_field" layoutX="320.0" layoutY="78.0" prefWidth="272.0" />
     <Label fx:id="password_field" layoutX="320.0" layoutY="178.0" prefWidth="264.0" />
     <Button layoutX="409.0" layoutY="403.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
-    <TextArea fx:id="reviews" layoutX="14.0" layoutY="483.0" prefHeight="166.0" prefWidth="611.0" wrapText="true" />
+    <TextArea fx:id="reviews" editable="false" layoutX="14.0" layoutY="467.0" prefHeight="182.0" prefWidth="611.0" wrapText="true" />
     <Label layoutX="79.0" layoutY="409.0" text="Your Reviews" />
   </children>
 </AnchorPane>

@@ -4,12 +4,13 @@
 public interface Command {
 	
 	/**
-	 * Executes a command
+	 *Executes a command
 	 */
-	public void execute();
+	public RestaurantReview execute();
 	
 	/**
-	 * Undoes a command
+	 *Undoes a command
 	 */
-	public void undo();
+	public RestaurantReview undo();
+	
 }

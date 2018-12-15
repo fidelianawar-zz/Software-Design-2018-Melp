@@ -7,7 +7,7 @@ public class RestaurantOwner {
 	
 	/**
 	 * Constructor for the RestaurantOwner class. Initializes instance variable of name of restaurant owned.
-	 * @param the name of the restaurant owned by the owner
+	 * @param the name of the restaurant owned
 	 */
 	public RestaurantOwner(Restaurant restaurantOwned) {
 		this.restaurantOwned = restaurantOwned;

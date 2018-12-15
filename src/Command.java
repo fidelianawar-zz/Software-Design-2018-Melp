@@ -1,5 +1,5 @@
 /**
- *The Command interface defines the execute and undo methods for different commands.
+ * The Command interface defines the execute and undo methods for different commands.
  */
 public interface Command {
 	

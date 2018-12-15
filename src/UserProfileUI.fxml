@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="440.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UserProfileController" >
+<AnchorPane prefHeight="660.0" prefWidth="639.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
-    <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@../../../OneDrive/Desktop/janet_cat.jpg" />
-      </image>
-    </ImageView>
-    <Button layoutX="220.0" layoutY="88.0" mnemonicParsing="false" text="Edit Profile" />
-    <Button layoutX="109.0" layoutY="267.0" mnemonicParsing="false" onAction="#writeNewReview" text="Write Review" />
-    <Button layoutX="82.0" layoutY="374.0" mnemonicParsing="false" text="View My Reviews" />
+    <ImageView fx:id="user_image" fitHeight="262.0" fitWidth="262.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+    <Button layoutX="60.0" layoutY="304.0" mnemonicParsing="false" text="Edit Profile" />
+    <Button layoutX="376.0" layoutY="304.0" mnemonicParsing="false" onAction="#writeNewReview" text="Write Review" />
+    <Label fx:id="username_field" layoutX="320.0" layoutY="78.0" prefWidth="272.0" />
+    <Label fx:id="password_field" layoutX="320.0" layoutY="178.0" prefWidth="264.0" />
+    <Button layoutX="409.0" layoutY="403.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
+    <TextArea fx:id="reviews" editable="false" layoutX="14.0" layoutY="467.0" prefHeight="182.0" prefWidth="611.0" wrapText="true" />
+    <Label layoutX="79.0" layoutY="409.0" text="Your Reviews" />
   </children>
 </AnchorPane>

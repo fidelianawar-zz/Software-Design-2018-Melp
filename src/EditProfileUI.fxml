@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="533.0" prefWidth="561.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label layoutX="157.0" layoutY="36.0" text="Edit Your Profile" />
+    <Label layoutX="57.0" layoutY="106.0" prefWidth="286.0" text="Label" />
+    <Label layoutX="57.0" layoutY="176.0" prefWidth="286.0" text="Label" />
+    <Label layoutX="59.0" layoutY="250.0" prefWidth="204.0" text="New Username" />
+    <TextField layoutX="283.0" layoutY="250.0" prefWidth="220.0" />
+    <Label layoutX="59.0" layoutY="322.0" prefWidth="204.0" text="New Password" />
+    <TextField layoutX="283.0" layoutY="322.0" prefWidth="220.0" />
+    <Label layoutX="57.0" layoutY="392.0" prefWidth="204.0" text="Profile Picture" />
+    <Button layoutX="130.0" layoutY="458.0" mnemonicParsing="false" text="Submit Changes" />
+    <Button layoutX="284.0" layoutY="386.0" mnemonicParsing="false" text="Select Image" />
+  </children>
+</AnchorPane>

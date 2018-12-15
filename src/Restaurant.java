@@ -9,7 +9,7 @@ import java.sql.ResultSet;
  */
 public class Restaurant {
 	private String name;
-	private RestaurantOwner owner;
+	//private RestaurantOwner owner;
 	private int averageRating;
 	private String location;
 	private String typeOfFood;
@@ -23,13 +23,10 @@ public class Restaurant {
 		this.name = name;
 	}
 	
-	/**
-	 * Creates a table for the restaurant
-	 */
 	public void createRestaurantTable() {
 		try (
 				Connection sqlConnection = DriverManager.getConnection(
-						"jdbc:mysql://localhost:" + PORT_NUMBER + "/ebookshop?user=root&password=root");
+						"jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 				Statement stmt = sqlConnection.createStatement();
 				) {
 			String reviewsTable = "create table Reviews ( " +
@@ -46,10 +43,6 @@ public class Restaurant {
 			e.printStackTrace(); 
 		}
 	}
-	
-	/**
-	 * Creates a table for the reviewer
-	 */
 	public void createReviewerTable() {
 		try (
 				Connection sqlConnection = DriverManager.getConnection(

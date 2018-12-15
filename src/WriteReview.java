@@ -1,5 +1,5 @@
 /**
-* This class defines the command for users to write reviews.
+* This class defines the command to write reviews.
 */
 public class WriteReview implements Command {
 	private String review;
@@ -12,6 +12,7 @@ public class WriteReview implements Command {
 	* @param the rating of the restaurant
 	* @param the name of the restaurant under review
 	*/
+
 	public WriteReview(String review, int rating, String restaurantUnderReview) {
 		this.review = review;
 		this.rating = rating;
@@ -26,7 +27,7 @@ public class WriteReview implements Command {
 		RestaurantReview new_review = new RestaurantReview(review, rating, restaurantUnderReview);
     	return new_review;
 	}
-	
+
 	/**
 	* This method undoes commands.
 	* Not yet implemented

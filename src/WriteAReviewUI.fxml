@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="WriteAReviewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" >
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutX="69.0" layoutY="101.0" text="Restaurant to be Reviewed:" />
     <TextField fx:id="restaurant" layoutX="489.0" layoutY="101.0" prefWidth="243.0" text="Restaurant Name" />
-    <MenuButton layoutX="489.0" layoutY="197.0" mnemonicParsing="false" prefWidth="245.0" text="Number of Stars">
+    <MenuButton fx:id="star_list" layoutX="489.0" layoutY="197.0" mnemonicParsing="false" prefWidth="245.0">
       <items>
         <MenuItem mnemonicParsing="false" onAction="#OneStarReview" text="1" />
         <MenuItem mnemonicParsing="false" onAction="#TwoStarReview" text="2" />

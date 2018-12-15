@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="458.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="SignUpForAccountController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <MenuButton fx:id="account_types" mnemonicParsing="false" prefWidth="253.0" AnchorPane.bottomAnchor="279.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="126.0">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#selectAccountTypeAdmin" text="Administrator" />
+        <MenuItem mnemonicParsing="false" onAction="#selectAccountTypeOwner" text="Owner" />
+        <MenuItem mnemonicParsing="false" onAction="#selectAccountTypeMember" text="Member" />
+      </items>
+    </MenuButton>
+    <TextField fx:id="username" prefWidth="200.0" text="username" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="206.0" />
+    <TextField fx:id="password" prefWidth="200.0" text="password" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="276.0" />
+    <Button mnemonicParsing="false" onAction="#createUser" text="Create Account" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="360.0" />
+    <Label fx:id="error_check" alignment="CENTER" prefWidth="422.0" text="" textAlignment="CENTER" AnchorPane.bottomAnchor="353.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="65.0" />
+  </children>
+</AnchorPane>

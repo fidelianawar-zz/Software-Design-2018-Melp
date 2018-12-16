@@ -58,4 +58,28 @@ public class MelpMember{
 		System.out.println(my_reviews.remove(my_reviews.size() - 1));
 	}
 	
+	public void setStatus(boolean memberStatus) {
+		this.memberStatus = memberStatus;
+	}
+
+	public boolean getStatus() {
+		return currentState.getStatus();
+	}
+
+	public int getNumOfVulgarPosts() {
+		return numOfVulgarPosts;
+	}
+
+	public void incrementVulgarPosts() {
+		numOfVulgarPosts++;
+	}
+
+	public boolean maxVulgarPosts() {
+		return numOfVulgarPosts >= 20;
+	}
+
+	public void blockUser() {
+		currentState = blockedState;
+	}
+
 }

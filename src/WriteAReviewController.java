@@ -76,6 +76,19 @@ public class WriteAReviewController {
 			return false;
 		}
 	}
+	
+	@FXML
+	void returnToProfile(ActionEvent event) throws IOException {
+		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("My Profile");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+        UserProfileController controller = new UserProfileController();
+        controller.setMember(reviewer);
+        loader.setController(controller);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
+	}
 
 	/**
 	 * This is the "Submit review" button. It makes sure the review isn't vulgar, then moves to the ViewReview page
@@ -87,13 +100,6 @@ public class WriteAReviewController {
 	void submitRestaurantReview(ActionEvent event) throws IOException, SQLException {
 		restaurant_name = restaurant.getText();
 		restaurant_review = review.getText();
-		//String value = ((Button)event.getSource()).getText();
-
-//		Command write_review_command = new WriteReview(restaurant_review, number_of_stars, restaurant_name);
-		//RestaurantReview default_review = new RestaurantReview("Review no longer exists.", 0, restaurant_name);
-		//RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
-//		RestaurantReview review = write_review_command.execute();
-//		if (review.approveRequest()) {
 		RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
 		if (number_of_stars != 0) {
 			if (restaurantInDatabase()) {
@@ -113,13 +119,20 @@ public class WriteAReviewController {
 				}
 				else {
 					headerLabel.setText("Your review was vulgar. Try again");
-//					reviewer.incrementVulgarPosts();
-//					if(reviewer.maxVulgarPosts()) {
-//						reviewer.blockUser();
+					reviewer.incrementVulgarPosts();
+					if(reviewer.maxVulgarPosts()) {
+						reviewer.blockUser();
 					}
+				}
 			}
 			else {
 				headerLabel.setText("This restaurant is not in our system. You can't write a review for it yet.");
+				headerLabel.setText("Your review was vulgar. Try again");
+				reviewer.incrementVulgarPosts();
+				if(reviewer.maxVulgarPosts()) {
+					reviewer.blockUser();
+					showStage();
+				}
 			}
 		}
 		else {
@@ -127,14 +140,13 @@ public class WriteAReviewController {
 		}
 	}
 
-	public static void showStage(){
+	public void showStage() throws IOException{
 		Stage newStage = new Stage();
-		VBox cancelButton = new VBox();
-		TextField blockMessage = new TextField("Sorry, you have attempted to post too many vulgar messages. You are now blocked from Melp.");
-		cancelButton.getChildren().add(blockMessage);
-		Scene stageScene = new Scene(cancelButton, 300, 300);
-		newStage.setScene(stageScene);
-		newStage.show();
+		newStage.setTitle("Block User");
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("BlockedMessageUI.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		newStage.setScene(scene);
 	}
 
 	@FXML

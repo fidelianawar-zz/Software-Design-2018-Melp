@@ -36,7 +36,7 @@ public class CreateMelpDatabase {
 			stmt = conn.createStatement();
 			stmt.execute("create table users (username varchar(50), password varchar(50), primary key(username));");
 			stmt.execute("create table restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, primary key (RestaurantName));");
-			stmt.execute("create table reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username));");
+			stmt.execute("create table reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

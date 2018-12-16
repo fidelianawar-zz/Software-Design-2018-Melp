@@ -2,8 +2,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,6 +59,13 @@ public class WriteAReviewController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void restaurantInDatabase() throws SQLException {
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select RestaurantName from restaurants");
+		ArrayList<String> restaurant_names = new ArrayList<String>();
 	}
 
 	/**

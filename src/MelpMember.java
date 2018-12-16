@@ -35,6 +35,10 @@ public class MelpMember{
 		image_path = path;
 	}
 	
+	public void deleteLastReview() {
+		my_reviews.remove(my_reviews.size() - 1);
+	}
+	
 	public void addReviewToMyReviews(RestaurantReview new_review) {
 		my_reviews.add(new_review);
 	}

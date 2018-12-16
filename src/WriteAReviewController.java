@@ -11,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
@@ -21,7 +20,7 @@ import javafx.stage.Stage;
 public class WriteAReviewController {
 	
 	private String restaurant_name;
-	private int number_of_stars;
+	private int number_of_stars = 0;
 	private String restaurant_review;
 	private MelpMember reviewer;
 	private static final int PORT_NUMBER = 3306;
@@ -70,22 +69,27 @@ public class WriteAReviewController {
     	restaurant_review = review.getText();
     	//String value = ((Button)event.getSource()).getText();
     	RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
-    	if (new_review.approveRequest()) {
-    		reviewer.addReviewToMyReviews(new_review);
-    		addReviewToDatabase(new_review);
-	    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-	    	next_stage.setTitle("View Review");
-	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
-	        ViewReviewController controller = new ViewReviewController();
-	        controller.setReview(new_review);
-	        controller.setMember(reviewer);
-	        loader.setController(controller);
-	        Parent root = loader.load();
-	        Scene scene = new Scene(root);
-	    	next_stage.setScene(scene);
+    	if (number_of_stars != 0) {
+	    	if (new_review.approveRequest()) {
+	    		reviewer.addReviewToMyReviews(new_review);
+	    		addReviewToDatabase(new_review);
+		    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		    	next_stage.setTitle("View Review");
+		    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
+		        ViewReviewController controller = new ViewReviewController();
+		        controller.setReview(new_review);
+		        controller.setMember(reviewer);
+		        loader.setController(controller);
+		        Parent root = loader.load();
+		        Scene scene = new Scene(root);
+		    	next_stage.setScene(scene);
+	    	}
+	    	else {
+	    		headerLabel.setText("Your review was vulgar. Try again");
+	    	}
     	}
     	else {
-    		headerLabel.setText("Your review was vulgar. Try again");
+    		headerLabel.setText("You must give the restaurant a number of stars (1-5)");
     	}
     }
     

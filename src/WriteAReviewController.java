@@ -95,12 +95,6 @@ public class WriteAReviewController {
 	    	}
     	}
     	else {
-    		headerLabel.setText("Your review was vulgar. Try again");
-//    		reviewer.incrementVulgarPosts();
-//    		if(reviewer.maxVulgarPosts()) {
-//    			reviewer.blockUser();
-//    			
-//    		}
     		headerLabel.setText("You must give the restaurant a number of stars (1-5)");
     	}
     }

@@ -92,6 +92,7 @@ public class WriteAReviewController {
 	    	}
 	    	else {
 	    		headerLabel.setText("Your review was vulgar. Try again");
+	    		reviewer.incrementVulgarPosts();
 	    		if(reviewer.maxVulgarPosts()) {
 	    			reviewer.blockUser();
 	    		}

@@ -78,12 +78,6 @@ public class WriteAReviewController {
 		restaurant_name = restaurant.getText();
 		restaurant_review = review.getText();
 		//String value = ((Button)event.getSource()).getText();
-
-		Command write_review_command = new WriteReview(restaurant_review, number_of_stars, restaurant_name);
-		//RestaurantReview default_review = new RestaurantReview("Review no longer exists.", 0, restaurant_name);
-		//RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
-		RestaurantReview review = write_review_command.execute();
-		//if (review.approveRequest()) {
 		RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
 		if (number_of_stars != 0) {
 			if (new_review.approveRequest()) {

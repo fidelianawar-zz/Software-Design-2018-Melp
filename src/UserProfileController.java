@@ -58,35 +58,42 @@ public class UserProfileController {
 	 */
     @FXML
     void writeNewReview(ActionEvent event) throws Exception {
-    	// if (current_member.getStatus()){
-	    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-	    	next_stage.setTitle("Write a Review");
-	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
-	        WriteAReviewController controller = new WriteAReviewController();
-	        controller.setMember(current_member);
-	        loader.setController(controller);
-	        Parent root = loader.load();
-	        Scene scene = new Scene(root);
-	    	next_stage.setScene(scene);
-	    // }
-	    // else {
-	    	// create new window with "you are blocked"
-	    // }
+    	Command write_review_command = new WriteReview(event, current_member);
+    	write_review_command.execute();
+//    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
+//        WriteAReviewController controller = new WriteAReviewController();
+//        controller.setMember(current_member);
+//        loader.setController(controller);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//    	next_stage.setScene(scene);
+//    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//    	next_stage.setTitle("Write a Review");
+//    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
+//        WriteAReviewController controller = new WriteAReviewController();
+//        controller.setMember(current_member);
+//        loader.setController(controller);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//    	next_stage.setScene(scene);
     }
     
-     @FXML
+    @FXML
     void deleteReview(ActionEvent event) throws Exception {
-    	current_member.deleteLastReview();
-    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	next_stage.setTitle("My Profile");
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
-        UserProfileController controller = new UserProfileController();
-        controller.setMember(current_member);
-        loader.setController(controller);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-    	next_stage.setScene(scene);
-    	// delete review from database if exists
+    	Command write_review_command = new WriteReview(event, current_member);
+    	write_review_command.undo();
+    	//delete last review from array  list of member reviews
+    	//delete review from database 
+//    	current_member.deleteLastReview();
+//    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//    	next_stage.setTitle("My Profile");
+//    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+//        UserProfileController controller = new UserProfileController();
+//        controller.setMember(current_member);
+//        loader.setController(controller);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//    	next_stage.setScene(scene);
     }
     
     @FXML
@@ -106,3 +113,4 @@ public class UserProfileController {
     }
 
 }
+

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="660.0" prefWidth="639.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="775.0" prefWidth="639.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
     <ImageView fx:id="user_image" fitHeight="262.0" fitWidth="262.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
@@ -14,8 +14,9 @@
     <Button layoutX="376.0" layoutY="304.0" mnemonicParsing="false" onAction="#writeNewReview" text="Write Review" />
     <Label fx:id="username_field" layoutX="320.0" layoutY="78.0" prefWidth="272.0" />
     <Label fx:id="password_field" layoutX="320.0" layoutY="178.0" prefWidth="264.0" />
-    <Button layoutX="409.0" layoutY="403.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
-    <TextArea fx:id="reviews" editable="false" layoutX="14.0" layoutY="467.0" prefHeight="182.0" prefWidth="611.0" wrapText="true" />
-    <Label layoutX="79.0" layoutY="409.0" text="Your Reviews" />
+    <Button layoutX="409.0" layoutY="490.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
+    <TextArea fx:id="reviews" editable="false" layoutX="14.0" layoutY="572.0" prefHeight="182.0" prefWidth="611.0" wrapText="true" />
+    <Label layoutX="79.0" layoutY="496.0" text="Your Reviews" />
+    <Button layoutX="369.0" layoutY="396.0" mnemonicParsing="false" onAction="#deleteReview" text="Delete Review" />
   </children>
 </AnchorPane>

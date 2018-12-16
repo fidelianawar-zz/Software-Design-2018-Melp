@@ -9,7 +9,7 @@ public class MelpMember{
 //	private MelpUserState currentState;
 //	private MelpUserState activeState;
 //	private MelpUserState blockedState;
-//	
+	
 	private ArrayList<RestaurantReview> my_reviews = new ArrayList<RestaurantReview>();
 	private String image_path;
 //	private boolean memberStatus;
@@ -21,7 +21,7 @@ public class MelpMember{
 	 */
 	public MelpMember(String name, String password) {
 		this.name = name;
-//		this.password = password;
+		this.password = password;
 //		this.activeState = new MelpMemberActiveState();
 //		this.blockedState = new MelpMemberBlockedState();
 //		this.currentState = new MelpMemberActiveState();
@@ -42,6 +42,10 @@ public class MelpMember{
 
 	public void setImagePath(String path) {
 		image_path = path;
+	}
+	
+	public void deleteLastReview() {
+		my_reviews.remove(my_reviews.size() - 1);
 	}
 	
 	public void addReviewToMyReviews(RestaurantReview new_review) {

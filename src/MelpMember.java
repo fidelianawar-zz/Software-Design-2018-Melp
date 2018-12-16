@@ -6,14 +6,14 @@ import java.util.ArrayList;
 public class MelpMember{
 	private String name;
 	private String password;
-//	private MelpUserState currentState;
-//	private MelpUserState activeState;
-//	private MelpUserState blockedState;
+	private MelpUserState currentState;
+	private MelpUserState activeState;
+	private MelpUserState blockedState;
 	
 	private ArrayList<RestaurantReview> my_reviews = new ArrayList<RestaurantReview>();
 	private String image_path;
-//	private boolean memberStatus;
-//	private int numOfVulgarPosts;
+	private boolean memberStatus;
+	private int numOfVulgarPosts;
 
 	/**
 	 * Constructor for the MelpMember class. Initializes instance variable of name.
@@ -22,9 +22,9 @@ public class MelpMember{
 	public MelpMember(String name, String password) {
 		this.name = name;
 		this.password = password;
-//		this.activeState = new MelpMemberActiveState();
-//		this.blockedState = new MelpMemberBlockedState();
-//		this.currentState = new MelpMemberActiveState();
+		this.activeState = new MelpMemberActiveState();
+		this.blockedState = new MelpMemberBlockedState();
+		this.currentState = new MelpMemberActiveState();
 		this.image_path = "";
 	}
 	
@@ -56,28 +56,28 @@ public class MelpMember{
 		return my_reviews;
 	}
 	
-//	public void setStatus(boolean memberStatus) {
-//		this.memberStatus = memberStatus;
-//	}
-//	
-//	public boolean getStatus() {
-//		return currentState.getStatus();
-//	}
-//	
-//	public int getNumOfVulgarPosts() {
-//		return numOfVulgarPosts;
-//	}
-//	
-//	public void incrementVulgarPosts() {
-//		numOfVulgarPosts++;
-//	}
-//	
-//	public boolean maxVulgarPosts() {
-//		return numOfVulgarPosts >= 20;
-//	}
-//	
-//	public void blockUser() {
-//		currentState = blockedState;
-//	}
+	public void setStatus(boolean memberStatus) {
+		this.memberStatus = memberStatus;
+	}
+	
+	public boolean getStatus() {
+		return currentState.getStatus();
+	}
+	
+	public int getNumOfVulgarPosts() {
+		return numOfVulgarPosts;
+	}
+	
+	public void incrementVulgarPosts() {
+		numOfVulgarPosts++;
+	}
+	
+	public boolean maxVulgarPosts() {
+		return numOfVulgarPosts >= 20;
+	}
+	
+	public void blockUser() {
+		currentState = blockedState;
+	}
 	
 }

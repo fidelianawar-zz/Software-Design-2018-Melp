@@ -1,18 +1,15 @@
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-
+import javafx.scene.Node;
+import javafx.stage.Stage;
 
 public class CloseBlockMessageWindowController {
 
     @FXML
     void closeWindow(ActionEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("BlockedMessageUI.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
+    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.close();
     }
 
 }

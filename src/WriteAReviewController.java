@@ -105,6 +105,7 @@ public class WriteAReviewController {
 				reviewer.incrementVulgarPosts();
 				if(reviewer.maxVulgarPosts()) {
 					reviewer.blockUser();
+					showStage();
 				}
 			}
 		}
@@ -115,14 +116,13 @@ public class WriteAReviewController {
 		}
 	}
 
-	public static void showStage(){
+	public void showStage() throws IOException{
 		Stage newStage = new Stage();
-		VBox cancelButton = new VBox();
-		TextField blockMessage = new TextField("Sorry, you have attempted to post too many vulgar messages. You are now blocked from Melp.");
-		cancelButton.getChildren().add(blockMessage);
-		Scene stageScene = new Scene(cancelButton, 300, 300);
-		newStage.setScene(stageScene);
-		newStage.show();
+		newStage.setTitle("Block User");
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("BlockedMessageUI.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		newStage.setScene(scene);
 	}
 
 	@FXML

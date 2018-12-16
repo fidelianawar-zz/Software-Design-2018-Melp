@@ -43,4 +43,9 @@ public class MelpMember{
 		return my_reviews;
 	}
 	
+	public void deleteLastReview() {
+		my_reviews.remove(my_reviews.size() - 1);
+		System.out.println(my_reviews.remove(my_reviews.size() - 1));
+	}
+	
 }

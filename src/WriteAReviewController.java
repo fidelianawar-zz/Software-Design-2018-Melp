@@ -69,22 +69,18 @@ public class WriteAReviewController {
     	restaurant_name = restaurant.getText();
     	restaurant_review = review.getText();
     	//String value = ((Button)event.getSource()).getText();
-
-    	Command write_review_command = new WriteReview(restaurant_review, number_of_stars, restaurant_name);
     	//RestaurantReview default_review = new RestaurantReview("Review no longer exists.", 0, restaurant_name);
-    	//RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
-    	RestaurantReview review = write_review_command.execute();
-    	//if (review.approveRequest()) {
-    	RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
+    	RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);  	
     	if (new_review.approveRequest()) {
     		reviewer.addReviewToMyReviews(new_review);
     		addReviewToDatabase(new_review);
+
 	    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	    	next_stage.setTitle("View Review");
 	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
 	        ViewReviewController controller = new ViewReviewController();
 	        //commands here
-	        controller.setReview(review);
+	        controller.setReview(new_review);
 	        //controller.setReview(default_review);
 	        controller.setReview(new_review);
 	        controller.setMember(reviewer);

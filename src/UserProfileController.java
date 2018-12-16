@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 public class UserProfileController {
 	
 	private MelpMember current_member;
+	private Command write_review_command;
 	
 	public void setMember(MelpMember current_member) {
 		this.current_member = current_member;
@@ -58,15 +59,41 @@ public class UserProfileController {
 	 */
     @FXML
     void writeNewReview(ActionEvent event) throws Exception {
-    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	next_stage.setTitle("Write a Review");
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
-        WriteAReviewController controller = new WriteAReviewController();
-        controller.setMember(current_member);
-        loader.setController(controller);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-    	next_stage.setScene(scene);
+    	write_review_command = new WriteReview(event, current_member);
+    	write_review_command.execute();
+//    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
+//        WriteAReviewController controller = new WriteAReviewController();
+//        controller.setMember(current_member);
+//        loader.setController(controller);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//    	next_stage.setScene(scene);
+//    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//    	next_stage.setTitle("Write a Review");
+//    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
+//        WriteAReviewController controller = new WriteAReviewController();
+//        controller.setMember(current_member);
+//        loader.setController(controller);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//    	next_stage.setScene(scene);
+    }
+    
+    @FXML
+    void deleteReview(ActionEvent event) throws Exception {
+    	write_review_command.undo();
+    	//delete last review from array  list of member reviews
+    	//delete review from database 
+//    	current_member.deleteLastReview();
+//    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//    	next_stage.setTitle("My Profile");
+//    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+//        UserProfileController controller = new UserProfileController();
+//        controller.setMember(current_member);
+//        loader.setController(controller);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//    	next_stage.setScene(scene);
     }
     
     @FXML

@@ -1,10 +1,26 @@
+import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import java.io.IOException;
+
 /**
 * This class defines the command to write reviews.
 */
 public class WriteReview implements Command {
-	private String review;
-	private int rating;
-	private String restaurantUnderReview;
+	private ActionEvent event;
+	private MelpMember current_member;
 	
 	/**
 	* Constructor for WriteReview instances.
@@ -13,28 +29,42 @@ public class WriteReview implements Command {
 	* @param the name of the restaurant under review
 	*/
 
-	public WriteReview(String review, int rating, String restaurantUnderReview) {
-		this.review = review;
-		this.rating = rating;
-		this.restaurantUnderReview = restaurantUnderReview;
+	public WriteReview(ActionEvent event, MelpMember current_member) {
+		this.event = event;
+		this.current_member = current_member;
 	}
 
 	/**
 	* This method executes commands.
 	* Not yet implemented
 	*/
-	public RestaurantReview execute() {
-		RestaurantReview new_review = new RestaurantReview(review, rating, restaurantUnderReview);
-    	return new_review;
+	public void execute() throws IOException {
+		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("Write a Review");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
+        WriteAReviewController controller = new WriteAReviewController();
+        controller.setMember(current_member);
+        loader.setController(controller);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
 	}
 
 	/**
 	* This method undoes commands.
 	* Not yet implemented
 	*/
-	public RestaurantReview undo() {
-		RestaurantReview default_review = new RestaurantReview("Review no longer exists.", 0, restaurantUnderReview);
-    	return default_review;
+	public void undo() throws IOException {
+		current_member.deleteLastReview();
+    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("My Profile");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+        UserProfileController controller = new UserProfileController();
+        controller.setMember(current_member);
+        loader.setController(controller);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
 	}
 	
 }

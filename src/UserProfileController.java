@@ -74,7 +74,7 @@ public class UserProfileController {
 	    // }
     }
     
-    @FXML
+     @FXML
     void deleteReview(ActionEvent event) throws Exception {
     	current_member.deleteLastReview();
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

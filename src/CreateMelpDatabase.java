@@ -37,6 +37,15 @@ public class CreateMelpDatabase {
 			stmt.execute("create table users (username varchar(50), password varchar(50), primary key(username));");
 			stmt.execute("create table restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, primary key (RestaurantName));");
 			stmt.execute("create table reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
+			if (!checkIfTableExists("users", conn)) {
+				stmt.execute("create table Users (username varchar(50), password varchar(50), primary key(username));");
+			}
+			if (!checkIfTableExists("restaurants", conn)) {
+				stmt.execute("create table Restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, primary key (RestaurantName));");
+			}
+			if (!checkIfTableExists("reviews", conn)) {
+				stmt.execute("create table Reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
+			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

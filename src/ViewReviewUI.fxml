@@ -11,6 +11,6 @@
     <TextArea fx:id="restaurantReview" editable="false" prefHeight="250.0" prefWidth="500.0" wrapText="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Button mnemonicParsing="false" onAction="#viewMyProfile" text="View My Profile" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="272.0" />
     <Button mnemonicParsing="false" onAction="#writeNewReview" text="Write Another Review" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="420.0" />
-    <Button layoutX="72.0" layoutY="348.0" mnemonicParsing="false" text="View Restaurant Profile" />
+    <Button onAction="#viewRestaurantProfile" layoutX="72.0" layoutY="348.0" mnemonicParsing="false" text="View Restaurant Profile" />
   </children>
 </AnchorPane>

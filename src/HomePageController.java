@@ -42,9 +42,9 @@ public class HomePageController {
     void searchRestaurants(ActionEvent event) throws IOException {
     	String restaurant_name = restaurant_query.getText();
     	try {
-	    	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/AwHanClass?user=root&password=root");
+    		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 			Statement stmt = conn.createStatement();
-	    	ResultSet rs = stmt.executeQuery("select RestaurantName from restaurants");
+	    	ResultSet rs = stmt.executeQuery("select RestaurantName from restaurants where RestaurantName='" + restaurant_name + "'");
 	    	ArrayList<String> restaurants = new ArrayList<String>();
 	    	while (rs.next()) {
 	    		restaurants.add(rs.getString("RestaurantName"));
@@ -56,8 +56,7 @@ public class HomePageController {
 	    		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    	next_stage.setTitle("Restaurant Profile");
 		    	FXMLLoader loader = new FXMLLoader(getClass().getResource("RestaurantProfileUI.fxml"));
-		        RestaurantProfileController controller = new RestaurantProfileController();
-		        controller.getName(restaurant_name);
+		        RestaurantProfileController controller = new RestaurantProfileController(restaurant_name);
 		        loader.setController(controller);
 		        Parent root = loader.load();
 		        Scene scene = new Scene(root);

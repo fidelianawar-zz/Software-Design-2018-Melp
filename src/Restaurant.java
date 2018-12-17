@@ -23,11 +23,20 @@ public class Restaurant {
 		this.typeOfFood = typeOfFood;
 	}
 	
+	public String getReviews() {
+		String output = null;
+		for (int i = 0; i < reviews.size(); i++) {
+			output += reviews.get(i).toString();
+			output += "\n\n";
+		}
+		return output;
+	}
+	
 	public void addReview(RestaurantReview curr_review) {
 		reviews.add(curr_review);
 	}
 	
 	public String toString() {
-		return "Restaurant: " + name + "\nOwner: " + owner + "\nLocation :" + location + "\nType of Food :" + typeOfFood + "\n + Average Rating :" + Integer.toString(averageRating);
+		return "Restaurant: " + name + "\nOwner: " + owner + "\nLocation: " + location + "\nType of Food: " + typeOfFood + "\nAverage Rating: " + Integer.toString(averageRating);
 	}
 }

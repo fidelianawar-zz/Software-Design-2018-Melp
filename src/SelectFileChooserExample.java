@@ -18,6 +18,9 @@ import javafx.event.EventHandler;
 import java.io.File;
 import java.util.List;
 
+/**
+* This class selects a file chooser example.
+*/
 public class SelectFileChooserExample
         extends Application {
 
@@ -25,11 +28,19 @@ public class SelectFileChooserExample
 	private Stage savedStage;
 	private static final String titleTxt = "JavaFX File Chooser Example 1";
 
+    /**
+    * Main method for program execution
+    * @param args
+    */
 	public static void main(String [] args) {
 
 		Application.launch(args);
 	}
 
+	/**
+	* Puts forth the file choosers.
+	* @param the primary stage
+	*/
 	@Override
 	public void start(Stage primaryStage) {
 	
@@ -74,6 +85,9 @@ public class SelectFileChooserExample
 		savedStage = primaryStage;
 	}
 
+	/**
+	* This private deals with the Single Fc Button Listener
+	*/
 	private class SingleFcButtonListener implements EventHandler<ActionEvent> {
 
 		@Override
@@ -83,6 +97,9 @@ public class SelectFileChooserExample
 		}
 	}
 
+	/**
+	* Shows one single file chooser
+	*/
 	private void showSingleFileChooser() {
 	
 		FileChooser fileChooser = new FileChooser();
@@ -97,6 +114,9 @@ public class SelectFileChooserExample
 		}
 	}
 
+	/**
+	* This private deals with Multiple Fc Button Listeners
+	*/
 	private class MultipleFcButtonListener implements EventHandler<ActionEvent> {
 
 		@Override
@@ -106,6 +126,9 @@ public class SelectFileChooserExample
 		}
 	}
 
+	/**
+	* Shows multiple file choosers
+	*/
 	private void showMultipleFileChooser() {
 
 		FileChooser fileChooser = new FileChooser();

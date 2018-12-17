@@ -16,7 +16,9 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
+/**
+* This class controls the GUI for a user to sign up for an account.
+*/
 public class SignUpForAccountController {
 	
 	private String account_type = "";
@@ -42,6 +44,9 @@ public class SignUpForAccountController {
     @FXML
     private TextField password;
     
+    /**
+    * Adds a member to the database
+    */
     public void addMemberToDatabase() {
     	try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
@@ -56,7 +61,11 @@ public class SignUpForAccountController {
     	}
     }
 
-
+    /**
+    * Creates a user
+    * @param the event of the user
+    * @throws IOException
+    */
     @FXML
     void createUser(ActionEvent event) throws IOException {
     	if (!account_type.equals("")) {
@@ -79,24 +88,39 @@ public class SignUpForAccountController {
     	}
     }
 
+    /**
+    * Selects an administrative account
+    * @param the event of the user
+    */
     @FXML
     void selectAccountTypeAdmin(ActionEvent event) {
     	account_type = "Administrator";
     	account_types.setText(account_type);
     }
     
+    /**
+    * Selects a restaurant owner account
+    * @param the event of the user
+    */
     @FXML
     void selectAccountTypeOwner(ActionEvent event) {
     	account_type = "Owner";
     	account_types.setText(account_type);
     }
     
+    /**
+    * Selects a member account
+    * @param the event of the user
+    */
     @FXML
     void selectAccountTypeMember(ActionEvent event) {
     	account_type = "Member";
     	account_types.setText(account_type);
     }
 
+    /**
+    * Initializes the account types
+    */
     @FXML
     void initialize() {
     	account_types.setText("Account Type");

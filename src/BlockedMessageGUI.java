@@ -4,7 +4,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+* This class sets up the GUI for blocked message.
+*/
 public class BlockedMessageGUI extends Application {
+	
+	/**
+	* Puts forth the page for a restaurant profile.
+	* @param the primary stage
+	* @throws Exception
+	*/
      @Override
     public void start(Stage primaryStage) throws Exception {
          // just load fxml file and display it in the stage:
@@ -15,7 +24,11 @@ public class BlockedMessageGUI extends Application {
         primaryStage.setTitle("User Blocked");
         primaryStage.show();
     }
-     // main method to support non-JavaFX-aware environments:
+     
+     /**
+     * Main method to support non-JavaFX-aware environments
+     * @param args
+     */
      public static void main(String[] args) {
         // starts the FX toolkit, instantiates this class, 
         // and calls start(...) on the FX Application thread:

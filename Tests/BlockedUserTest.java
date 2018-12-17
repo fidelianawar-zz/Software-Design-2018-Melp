@@ -1,8 +1,13 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
-
+/*
+* This class tests that a member is correctly blocked after submitting too many vulgar reviews.
+**/
 public class BlockedUserTest {
 
+	/*
+	* Tests that the number of vulgar posts is correctly incremented
+	**/
 	@Test
 	public void checkingNumOfVulgarPosts() {
 		MelpMember newMember = new MelpMember("member1", "password123");
@@ -16,6 +21,9 @@ public class BlockedUserTest {
 		assertEquals(newMember.maxVulgarPosts(), true);
 	}
 	
+	/*
+	* Tests that a member's status can correctly be updated to blocked
+	**/
 	@Test
 	public void blockingUser() {
 		MelpMember newMember = new MelpMember("member1", "password123");

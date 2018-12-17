@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +15,10 @@ public class Restaurant {
 	/**
 	 * Constructor for the Restaurant class. Initializes instance variable of name.
 	 * @param the name of the restaurant
+	 * @param the owner of the restaurant
+	 * @param the average rating of the restaurant
+	 * @param the location of the restaurant
+	 * @param the type of food of the restaurant
 	 */
 	public Restaurant(String name, String owner, int averageRating, String location, String typeOfFood) {
 		this.name = name;
@@ -23,10 +28,18 @@ public class Restaurant {
 		this.typeOfFood = typeOfFood;
 	}
 	
+	/**
+	* Adds a review to the list of reviews
+	* @param the current review to be added
+	*/
 	public void addReview(RestaurantReview curr_review) {
 		reviews.add(curr_review);
 	}
 	
+	/**
+	* Converts the restaurant to a string
+	* @return the String representation of the restaurant
+	*/
 	public String toString() {
 		return "Restaurant: " + name + "\nOwner: " + owner + "\nLocation :" + location + "\nType of Food :" + typeOfFood + "\n + Average Rating :" + Integer.toString(averageRating);
 	}

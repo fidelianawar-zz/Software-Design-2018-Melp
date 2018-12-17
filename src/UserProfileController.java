@@ -14,11 +14,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-
+/**
+* This class controls the GUI for the user profile.
+*/
 public class UserProfileController {
 	
 	private MelpMember current_member;
+	private Label headerLabel;
 	
+	/**
+	* Sets a member to the current member
+	* @param the current member
+	*/
 	public void setMember(MelpMember current_member) {
 		this.current_member = current_member;
 	}
@@ -41,6 +48,9 @@ public class UserProfileController {
     @FXML
     private Label password_field;
     
+    /**
+    * Initializes the restaurant reviews
+    */
     public void initializeReviews() {
     	String all_reviews = "";
     	ArrayList<RestaurantReview> member_reviews = current_member.getMy_reviews();
@@ -62,18 +72,30 @@ public class UserProfileController {
     	write_review_command.execute();
     }
     
+    /**
+    * Deletes a review
+    * @param the event of the user
+    * @throws Exception
+    */
     @FXML
     void deleteReview(ActionEvent event) throws Exception {
     	Command write_review_command = new WriteReview(event, current_member);
     	write_review_command.undo();
     }
     
+    /**
+    * Logs out of an account
+    * @param the event of the user
+    */
     @FXML
     void logOut(ActionEvent event) throws Exception {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
     	next_stage.close();
     }
 
+    /**
+    * Initializes the restaurant reviews
+    */
     @FXML
     void initialize() {
     	initializeReviews();

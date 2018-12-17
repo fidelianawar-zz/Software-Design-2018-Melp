@@ -20,6 +20,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+* This class controls the GUI which allows a user to write a review.
+*/
 public class WriteAReviewController {
 
 	private String restaurant_name;
@@ -46,6 +49,10 @@ public class WriteAReviewController {
 	@FXML
 	private TextArea review;
 
+	/**
+	* Adds a review to the database
+	* @param the current restaurant review
+	*/
 	public void addReviewToDatabase(RestaurantReview curr_rev) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
@@ -61,6 +68,11 @@ public class WriteAReviewController {
 		}
 	}
 
+	/**
+	* Checks if a restaurant is in the database
+	* @throws SQLException
+	* @return true if the restaurant is successfully added to database
+	*/
 	public boolean restaurantInDatabase() throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
@@ -77,6 +89,11 @@ public class WriteAReviewController {
 		}
 	}
 
+	/**
+	* Sends a user back to the user profile
+	* @param the event of the user
+	* @throws IOException
+	*/
 	@FXML
 	void returnToProfile(ActionEvent event) throws IOException {
 		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -141,6 +158,10 @@ public class WriteAReviewController {
 		}
 	}
 
+	/**
+	 * Displays the stage for blocking a member
+	 * @throws IOException 
+	 */
 	public void showStage() throws IOException{
 		try {
 			BlockedMessageGUI block = new BlockedMessageGUI();
@@ -158,42 +179,69 @@ public class WriteAReviewController {
 //		newStage.setScene(scene);
 	}
 
+	/**
+	 * Gives a restaurant a review of one star
+	 * @param the event of the user
+	 */
 	@FXML
 	void OneStarReview(ActionEvent event) {
 		number_of_stars = 1;
 		star_list.setText("1 Star");
 	}
 
+	/**
+	 * Gives a restaurant a review of two stars
+	 * @param the event of the user
+	 */
 	@FXML
 	void TwoStarReview(ActionEvent event) {
 		number_of_stars = 2;
 		star_list.setText("2 Stars");
 	}
 
+	/**
+	 * Gives a restaurant a review of three stars
+	 * @param the event of the user
+	 */
 	@FXML
 	void ThreeStarReview(ActionEvent event) {
 		number_of_stars = 3;
 		star_list.setText("3 Stars");
 	}
 
+	/**
+	 * Gives a restaurant a review of four stars
+	 * @param the event of the user
+	 */
 	@FXML
 	void FourStarReview(ActionEvent event) {
 		number_of_stars = 4;
 		star_list.setText("4 Stars");
 	}
 
+	/**
+	 * Gives a restaurant a review of five stars
+	 * @param the event of the user
+	 */
 	@FXML
 	void FiveStarReview(ActionEvent event) {
 		number_of_stars = 5;
 		star_list.setText("5 Stars");
 	}
 
+	/**
+	 * Initializes the number of stars for a user to choose from
+	 */
 	@FXML
 	void initialize() {
 		headerLabel.setText("Melp: Review a Restaurant");
 		star_list.setText("Number of Stars");
 	}
 
+	/**
+	 * Sets a member to the current member
+	 * @param the current member
+	 */
 	public void setMember(MelpMember current_member) {
 		reviewer = current_member;
 	}

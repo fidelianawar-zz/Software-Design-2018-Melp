@@ -4,7 +4,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+* This class sets up the GUI for a user profile.
+*/
 public class UserProfileGUI extends Application {
+	
+	/**
+	* Puts forth the page in which users can see their account.
+	* @param the primary stage
+	* @throws Exception
+	*/
      @Override
     public void start(Stage primaryStage) throws Exception {
          // just load fxml file and display it in the stage:
@@ -15,7 +24,11 @@ public class UserProfileGUI extends Application {
         primaryStage.setTitle("My Account");
         primaryStage.show();
     }
-     // main method to support non-JavaFX-aware environments:
+     
+     /**
+     * Main method to support non-JavaFX-aware environments
+     * @param args
+     */
      public static void main(String[] args) {
         // starts the FX toolkit, instantiates this class, 
         // and calls start(...) on the FX Application thread:

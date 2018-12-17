@@ -3,12 +3,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /*
-* This class tests the deleteLastReview method in the MelpMember class.
+* This class tests the deleteLastReview method in the MelpMember class
 **/
 public class DeleteReviewTest {
 
 	/*
-	* This class tests that the last review input is deleted.
+	* Tests that the last review input is deleted.
 	**/
 	@Test
 	public void testDeleteLastReview() {
@@ -23,7 +23,7 @@ public class DeleteReviewTest {
 	}
 	
 	/*
-	* This class tests that the last review input is deleted.
+	* Tests that the last review input is deleted when one review is deleted.
 	**/
 	@Test
 	public void testDeleteLastReviewTwice() {
@@ -39,7 +39,7 @@ public class DeleteReviewTest {
 	}
 	
 	/*
-	* This class tests that the last review input is deleted when multiple reviews are deleted.
+	* Tests that the last review input is deleted when multiple reviews are deleted.
 	**/
 	@Test
 	public void testDeleteLastReviewWhenNoReviews() {

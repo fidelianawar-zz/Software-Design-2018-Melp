@@ -4,7 +4,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+* This class runs the application. It is the framework upon which all of our User Interface depends.
+*/
 public class RunApplication extends Application {
+	
+	/**
+	* Puts forth the Melp home page
+	* @param the primary stage
+	* @throws Exception
+	*/
      @Override
     public void start(Stage primaryStage) throws Exception {
          // just load fxml file and display it in the stage:
@@ -15,7 +24,11 @@ public class RunApplication extends Application {
         primaryStage.setTitle("MELP!");
         primaryStage.show();
     }
-     // main method to support non-JavaFX-aware environments:
+     
+     /**
+     * Main method to support non-JavaFX-aware environments
+     * @param args
+     */
      public static void main(String[] args) {
         // starts the FX toolkit, instantiates this class, 
         // and calls start(...) on the FX Application thread:

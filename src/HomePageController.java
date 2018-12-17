@@ -17,7 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
+/**
+* This class controls the GUI for the home page.
+*/
 public class HomePageController {
 	
 	public static final String PORT_NUMBER = "3306";
@@ -38,6 +40,11 @@ public class HomePageController {
     void logIn(ActionEvent event) {
     }
 
+    /**
+    * Searches the restaurants
+    * @param the event of the user
+    * @throws IOException
+    */
     @FXML
     void searchRestaurants(ActionEvent event) throws IOException {
     	String restaurant_name = restaurant_query.getText();
@@ -69,6 +76,11 @@ public class HomePageController {
     	}
     }
 
+    /**
+    * Signs up on Melp
+    * @param the event of the user
+    * @throws IOException
+    */
     @FXML
     void signUp(ActionEvent event) throws IOException {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -79,6 +91,9 @@ public class HomePageController {
     	next_stage.setScene(scene);
     }
 
+    /**
+    * Initializes the Welcome to Melp screen
+    */
     @FXML
     void initialize() {
     	title.setText("Welcome to Melp!");

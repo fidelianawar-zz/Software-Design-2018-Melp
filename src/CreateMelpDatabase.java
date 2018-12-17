@@ -5,10 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+* This class creates the Melp Database.
+*/
 public class CreateMelpDatabase {
 	
 	private static final String PORT_NUMBER = "3306";
 
+	/**
+	* This class checks if a table exists.
+	* @param the name of the table
+	* @parm the connection
+	*/
 	public static boolean checkIfTableExists(String tablename, Connection conn) {
 		try {
 			DatabaseMetaData dbm = conn.getMetaData();
@@ -26,11 +34,23 @@ public class CreateMelpDatabase {
 		return false;
 	}
 	
+	/**
+	* This class adds a restaurant to the database.
+	* @param the name of the restaurant
+	* @param the owner of the restaurant
+	* @param the location of the restaurant
+	* @param the type of food of the restaurant
+	* @param the average rating of the restaurant
+	*/
 	public static String addRestaurant(String name, String owner, String location, String type, int rating) {
 		String concatenate = "'" + name + "', '" + owner + "', '" + location + "', '" + type + "', '" + rating + "'";
 		return "insert into restaurants values (" + concatenate + ");";
 	}
 	
+	/**
+	* Method for main program execution
+	* @param args
+	*/
 	public static void main(String[] args) {
 		Connection conn;
 		try {

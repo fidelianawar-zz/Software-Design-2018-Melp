@@ -5,12 +5,14 @@ import java.io.IOException;
 public interface Command {
 	
 	/**
-	 *Executes a command
+	 * Executes a command
+	 * @throws IOException
 	 */
 	public void execute() throws IOException;
 	
 	/**
-	 *Undoes a command
+	 * Undoes a command
+	 * @throws IOException
 	 */
 	public void undo() throws IOException;
 	

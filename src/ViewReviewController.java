@@ -8,11 +8,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+/**
+* This class controls the GUI which allows a user to view a review.
+*/
 public class ViewReviewController {
 	
 	private RestaurantReview current_review;
 	private MelpMember current_member;
 	
+	/**
+	* Sets a review to the current review
+	* @param the current review
+	*/
 	public void setReview(RestaurantReview current_review) {
 		this.current_review = current_review;
 	}
@@ -35,6 +42,10 @@ public class ViewReviewController {
     	next_stage.setScene(scene);
 	}
 	
+	/**
+	* Views a restaurant's profile
+	* @param the event of the user
+	*/
 	@FXML
 	void viewRestaurantProfile(ActionEvent event) {
 		System.out.println("Going to " + current_review.getRestaurantUnderReview());
@@ -61,11 +72,18 @@ public class ViewReviewController {
 	@FXML
     private TextArea restaurantReview;
 
+	/**
+	* Initializes the current review as a String
+	*/
     @FXML
     private void initialize() {
         restaurantReview.setText(current_review.toString());
     }
 
+	/**
+	 * Sets a member to the current reviewer
+	 * @param the current reviewer
+	 */
 	public void setMember(MelpMember reviewer) {
 		current_member = reviewer;
 	}

@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * This class tests that the Restaurant Review class is correctly approving and disapproving reviews.
+ * This class tests that the Restaurant Review class is correctly approving and disapproving reviews
  */
 public class VulgarWordsTests {
 

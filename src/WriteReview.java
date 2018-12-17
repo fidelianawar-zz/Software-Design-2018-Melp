@@ -24,9 +24,8 @@ public class WriteReview implements Command {
 	
 	/**
 	* Constructor for WriteReview instances.
-	* @param the restaurant review
-	* @param the rating of the restaurant
-	* @param the name of the restaurant under review
+	* @param the event taken by the user in the GUI
+	* @param the current member writing a review
 	*/
 
 	public WriteReview(ActionEvent event, MelpMember current_member) {
@@ -35,8 +34,8 @@ public class WriteReview implements Command {
 	}
 
 	/**
-	* This method executes commands.
-	* Not yet implemented
+	* This method executes the command to write a review.
+	* @throws IOException
 	*/
 	public void execute() throws IOException {
 		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -51,20 +50,21 @@ public class WriteReview implements Command {
 	}
 
 	/**
-	* This method undoes commands.
-	* Not yet implemented
+	* This method undoes the command to write a review and effectively deletes a review.
+	* @throws IOException
 	*/
 	public void undo() throws IOException {
-		current_member.deleteLastReview();
-    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	next_stage.setTitle("My Profile");
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
-        UserProfileController controller = new UserProfileController();
-        controller.setMember(current_member);
-        loader.setController(controller);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-    	next_stage.setScene(scene);
+		if (current_member.deleteLastReview() != null) {
+	    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    	next_stage.setTitle("My Profile");
+	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+	        UserProfileController controller = new UserProfileController();
+	        controller.setMember(current_member);
+	        loader.setController(controller);
+	        Parent root = loader.load();
+	        Scene scene = new Scene(root);
+	    	next_stage.setScene(scene);
+		}
 	}
 	
 }

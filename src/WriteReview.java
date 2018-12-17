@@ -66,5 +66,4 @@ public class WriteReview implements Command {
 	    	next_stage.setScene(scene);
 		}
 	}
-	
 }

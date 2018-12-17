@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.sql.SQLException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,8 +50,15 @@ public class ViewReviewController {
 	* @param the event of the user
 	*/
 	@FXML
-	void viewRestaurantProfile(ActionEvent event) {
-		System.out.println("Going to " + current_review.getRestaurantUnderReview());
+	void viewRestaurantProfile(ActionEvent event) throws SQLException, IOException {
+		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("Restaurant Profile");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("RestaurantProfileUI.fxml"));
+        RestaurantProfileController controller = new RestaurantProfileController(current_review.getRestaurantUnderReview());
+        loader.setController(controller);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
 	}
 	
 	/**

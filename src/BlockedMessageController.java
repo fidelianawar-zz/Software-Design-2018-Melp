@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
-public class CloseBlockMessageWindowController {
+public class BlockedMessageController {
 
     @FXML
     void closeWindow(ActionEvent event) throws IOException {

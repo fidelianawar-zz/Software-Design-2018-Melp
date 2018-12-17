@@ -60,7 +60,7 @@ public class WriteAReviewController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean restaurantInDatabase() throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
@@ -76,18 +76,18 @@ public class WriteAReviewController {
 			return false;
 		}
 	}
-	
+
 	@FXML
 	void returnToProfile(ActionEvent event) throws IOException {
 		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	next_stage.setTitle("My Profile");
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
-        UserProfileController controller = new UserProfileController();
-        controller.setMember(reviewer);
-        loader.setController(controller);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-    	next_stage.setScene(scene);
+		next_stage.setTitle("My Profile");
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+		UserProfileController controller = new UserProfileController();
+		controller.setMember(reviewer);
+		loader.setController(controller);
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		next_stage.setScene(scene);
 	}
 
 	/**
@@ -103,7 +103,8 @@ public class WriteAReviewController {
 		RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
 		if (number_of_stars != 0) {
 			if (new_review.approveRequest()) {
-				if (new_review.isNotSpam(reviewer, restaurant_name)) {
+//				if (new_review.isNotSpam(reviewer, restaurant_name)) {
+				if (restaurantInDatabase()) {
 					reviewer.addReviewToMyReviews(new_review);
 					reviewer.addRestaurantToMyRestaurants(new_review.getRestaurantUnderReview());
 					addReviewToDatabase(new_review);
@@ -119,41 +120,19 @@ public class WriteAReviewController {
 					next_stage.setScene(scene);
 				}
 				else {
-					headerLabel.setText("You have already reviewed this restaurant today. No spam allowed!");
+					headerLabel.setText("This restaurant is not in our system. You can't write a review for it yet.");
 				}
+//				}
+//				else {
+//					headerLabel.setText("You have already reviewed this restaurant today. No spam allowed!");
+//				}
 			} 
 			else {
-			if (restaurantInDatabase()) {
-				if (new_review.approveRequest()) {
-					reviewer.addReviewToMyReviews(new_review);
-					addReviewToDatabase(new_review);
-					Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-					next_stage.setTitle("View Review");
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
-					ViewReviewController controller = new ViewReviewController();
-					controller.setReview(new_review);
-					controller.setMember(reviewer);
-					loader.setController(controller);
-					Parent root = loader.load();
-					Scene scene = new Scene(root);
-					next_stage.setScene(scene);
-				}
-				else {
-					headerLabel.setText("Your review was vulgar. Try again");
-					reviewer.incrementVulgarPosts();
-					if(reviewer.maxVulgarPosts()) {
-						reviewer.blockUser();
-					}
-				}
-			}
-			else {
-				headerLabel.setText("This restaurant is not in our system. You can't write a review for it yet.");
 				headerLabel.setText("Your review was vulgar. Try again");
 				reviewer.incrementVulgarPosts();
 				if(reviewer.maxVulgarPosts()) {
 					reviewer.blockUser();
 					showStage();
-					}
 				}
 			}
 		}
@@ -163,12 +142,20 @@ public class WriteAReviewController {
 	}
 
 	public void showStage() throws IOException{
-		Stage newStage = new Stage();
-		newStage.setTitle("Block User");
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("BlockedMessageUI.fxml"));
-		Parent root = loader.load();
-		Scene scene = new Scene(root);
-		newStage.setScene(scene);
+		try {
+			BlockedMessageGUI block = new BlockedMessageGUI();
+			Stage primaryStage = new Stage();
+			block.start(primaryStage);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+//		Stage newStage = new Stage();
+//		newStage.setTitle("Block User");
+//		FXMLLoader loader = new FXMLLoader(getClass().getResource("BlockedMessageUI.fxml"));
+//		Parent root = loader.load();
+//		Scene scene = new Scene(root);
+//		newStage.setScene(scene);
 	}
 
 	@FXML

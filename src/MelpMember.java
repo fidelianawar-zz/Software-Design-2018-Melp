@@ -83,7 +83,7 @@ public class MelpMember{
 	}
 
 	public boolean maxVulgarPosts() {
-		return numOfVulgarPosts >= 20;
+		return numOfVulgarPosts >= 2;
 	}
 
 	public void blockUser() {

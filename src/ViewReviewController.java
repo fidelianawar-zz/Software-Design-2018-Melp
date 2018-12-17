@@ -35,6 +35,11 @@ public class ViewReviewController {
     	next_stage.setScene(scene);
 	}
 	
+	@FXML
+	void viewRestaurantProfile(ActionEvent event) {
+		System.out.println("Going to " + current_review.getRestaurantUnderReview());
+	}
+	
 	/**
 	 * This is the "Write a new review" button after submitting a review
 	 * @param event - this is the button press action

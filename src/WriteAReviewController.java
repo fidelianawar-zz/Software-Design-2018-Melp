@@ -61,23 +61,45 @@ public class WriteAReviewController {
 		}
 	}
 	
-	public void restaurantInDatabase() throws SQLException {
+	public boolean restaurantInDatabase() throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select RestaurantName from restaurants");
 		ArrayList<String> restaurant_names = new ArrayList<String>();
+		while(rs.next()) {
+			restaurant_names.add(rs.getString("RestaurantName"));
+		}
+		if (restaurant_names.contains(restaurant_name)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	@FXML
+	void returnToProfile(ActionEvent event) throws IOException {
+		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("My Profile");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+        UserProfileController controller = new UserProfileController();
+        controller.setMember(reviewer);
+        loader.setController(controller);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
 	}
 
 	/**
 	 * This is the "Submit review" button. It makes sure the review isn't vulgar, then moves to the ViewReview page
 	 * @param event - this is the button press action
+	 * @throws SQLException 
 	 * @throws Exception - in case the gui being created doesn't exist (which is impossible)
 	 */
 	@FXML
-	void submitRestaurantReview(ActionEvent event) throws IOException {
+	void submitRestaurantReview(ActionEvent event) throws IOException, SQLException {
 		restaurant_name = restaurant.getText();
 		restaurant_review = review.getText();
-		//String value = ((Button)event.getSource()).getText();
 		RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
 		if (number_of_stars != 0) {
 			if (new_review.approveRequest()) {
@@ -101,16 +123,41 @@ public class WriteAReviewController {
 				}
 			} 
 			else {
+			if (restaurantInDatabase()) {
+				if (new_review.approveRequest()) {
+					reviewer.addReviewToMyReviews(new_review);
+					addReviewToDatabase(new_review);
+					Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+					next_stage.setTitle("View Review");
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
+					ViewReviewController controller = new ViewReviewController();
+					controller.setReview(new_review);
+					controller.setMember(reviewer);
+					loader.setController(controller);
+					Parent root = loader.load();
+					Scene scene = new Scene(root);
+					next_stage.setScene(scene);
+				}
+				else {
+					headerLabel.setText("Your review was vulgar. Try again");
+					reviewer.incrementVulgarPosts();
+					if(reviewer.maxVulgarPosts()) {
+						reviewer.blockUser();
+					}
+				}
+			}
+			else {
+				headerLabel.setText("This restaurant is not in our system. You can't write a review for it yet.");
 				headerLabel.setText("Your review was vulgar. Try again");
 				reviewer.incrementVulgarPosts();
 				if(reviewer.maxVulgarPosts()) {
 					reviewer.blockUser();
 					showStage();
+					}
 				}
 			}
 		}
 		else {
-
 			headerLabel.setText("You must give the restaurant a number of stars (1-5)");
 		}
 	}

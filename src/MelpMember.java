@@ -21,7 +21,6 @@ public class MelpMember{
 	 */
 	public MelpMember(String name, String password) {
 		this.name = name;
-	
 		this.password = password;
 		this.activeState = new MelpMemberActiveState();
 		this.blockedState = new MelpMemberBlockedState();
@@ -81,5 +80,4 @@ public class MelpMember{
 	public void blockUser() {
 		currentState = blockedState;
 	}
-
 }

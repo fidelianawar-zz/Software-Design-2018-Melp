@@ -90,7 +90,11 @@ public class UserProfileController {
     @FXML
     void logOut(ActionEvent event) throws Exception {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	next_stage.close();
+    	next_stage.setTitle("MELP!");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageUI.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
     }
 
     /**

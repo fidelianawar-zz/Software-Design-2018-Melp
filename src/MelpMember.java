@@ -11,6 +11,7 @@ public class MelpMember{
 	private MelpUserState blockedState;
 	
 	private ArrayList<RestaurantReview> my_reviews = new ArrayList<RestaurantReview>();
+	private ArrayList<String> my_restaurants = new ArrayList<String>();
 	private String image_path;
 	private boolean memberStatus;
 	private int numOfVulgarPosts;
@@ -47,14 +48,21 @@ public class MelpMember{
 	public void addReviewToMyReviews(RestaurantReview new_review) {
 		my_reviews.add(new_review);
 	}
+	
+	public void addRestaurantToMyRestaurants(String new_restaurant) {
+		my_restaurants.add(new_restaurant);
+	}
 
 	public ArrayList<RestaurantReview> getMy_reviews() {
 		return my_reviews;
 	}
 	
+	public ArrayList<String> getMy_restaurants() {
+		return my_restaurants;
+	}
+	
 	public void deleteLastReview() {
 		my_reviews.remove(my_reviews.size() - 1);
-		System.out.println(my_reviews.remove(my_reviews.size() - 1));
 	}
 	
 	public void setStatus(boolean memberStatus) {

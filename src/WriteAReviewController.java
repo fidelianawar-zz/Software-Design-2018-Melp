@@ -100,7 +100,7 @@ public class WriteAReviewController {
 	void submitRestaurantReview(ActionEvent event) throws IOException, SQLException {
 		restaurant_name = restaurant.getText();
 		restaurant_review = review.getText();
-		RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
+		RestaurantReview new_review = new RestaurantReview(reviewer.getName(), restaurant_review, number_of_stars, restaurant_name);
 		if (number_of_stars != 0) {
 			if (new_review.approveRequest()) {
 //				if (new_review.isNotSpam(reviewer, restaurant_name)) {

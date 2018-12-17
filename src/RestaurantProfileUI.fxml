@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="RestaurantProfileController" >
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" >
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="14.0" layoutY="26.0" prefWidth="472.0" text="Restaurant Name" />

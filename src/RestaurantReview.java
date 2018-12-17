@@ -34,6 +34,7 @@ public class RestaurantReview {
 	private String content;
 	private int rating;
 	private String restaurantUnderReview;
+	private String reviewer;
 	private String[] vulgarWords = {"crappy", "stupid", "dumb", "idiot", "idiots", "dummy", "dummies", "loser", "losers", "fool", "fools", "ass", "imbecile", "imbeciles"};
 	
 	/**
@@ -42,7 +43,8 @@ public class RestaurantReview {
 	 * @param the rating of the restaurant
 	 * @param the name of the restaurant under review
 	 */
-	public RestaurantReview(String content, int rating, String restaurantUnderReview) {
+	public RestaurantReview(String reviwer, String content, int rating, String restaurantUnderReview) {
+		this.reviewer = reviwer;
 		this.content = content;
 		this.rating = rating;
 		this.restaurantUnderReview = restaurantUnderReview;

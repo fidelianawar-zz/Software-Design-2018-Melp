@@ -26,8 +26,9 @@ public class CreateMelpDatabase {
 		return false;
 	}
 	
-	public void addRestaurant() {
-		
+	public static String addRestaurant(String name, String owner, String location, String type, int rating) {
+		String concatenate = "'" + name + "', '" + owner + "', '" + location + "', '" + type + "', '" + rating + "'";
+		return "insert into restaurants values (" + concatenate + ");";
 	}
 	
 	public static void main(String[] args) {
@@ -41,11 +42,9 @@ public class CreateMelpDatabase {
 			stmt.execute("create table users (username varchar(50), password varchar(50), primary key(username));");
 			stmt.execute("create table restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, primary key (RestaurantName));");
 			stmt.execute("create table reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
-			stmt.execute("create table Users (username varchar(50), password varchar(50), primary key(username));");
-			stmt.execute("create table Restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, primary key (RestaurantName));");
-			stmt.execute("create table Reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
-			
-			stmt.executeQuery("insert into restaurants values ");
+			stmt.execute(addRestaurant("Rastall", "Bon Apetite", "CC", "Eclectic", 2));
+			stmt.execute(addRestaurant("Benjis", "Bon Apetite", "CC", "Grill", 4));
+			stmt.execute(addRestaurant("Preserve", "Bon Apetite", "CC", "Grill", 5));
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

@@ -1,62 +1,33 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  * The Restaurant class creates instances of restaurants registered on the system.
  */
 public class Restaurant {
 	private String name;
-	//private RestaurantOwner owner;
+	private String owner;
 	private int averageRating;
 	private String location;
 	private String typeOfFood;
-	public static final String PORT_NUMBER = "8889";
+	private ArrayList<RestaurantReview> reviews = new ArrayList<RestaurantReview>();
 
 	/**
 	 * Constructor for the Restaurant class. Initializes instance variable of name.
 	 * @param the name of the restaurant
 	 */
-	public Restaurant(String name) {
+	public Restaurant(String name, String owner, int averageRating, String location, String typeOfFood) {
 		this.name = name;
+		this.owner = owner;
+		this.averageRating = averageRating;
+		this.location = location;
+		this.typeOfFood = typeOfFood;
 	}
 	
-	public void createRestaurantTable() {
-		try (
-				Connection sqlConnection = DriverManager.getConnection(
-						"jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
-				Statement stmt = sqlConnection.createStatement();
-				) {
-			String reviewsTable = "create table Reviews ( " +
-					"RestaurantName varchar(50), " +
-					"Owner varchar(50), " +
-					"Location varchar(50), " +
-					"TypeOfFood varchar(50), " +
-					"AverageRating int, " +
-					"primary key (RestaurantName));";
-			stmt.execute(reviewsTable);
-
-
-		} catch(SQLException e) {
-			e.printStackTrace(); 
-		}
+	public void addReview(RestaurantReview curr_review) {
+		reviews.add(curr_review);
 	}
-	public void createReviewerTable() {
-		try (
-				Connection sqlConnection = DriverManager.getConnection(
-						"jdbc:mysql://localhost:" + PORT_NUMBER + "/ebookshop?user=root&password=root");
-				Statement stmt = sqlConnection.createStatement();
-				) {
-			String sql = "create table Reviewers ( " +
-					"RestaurantName varchar(50), " +
-					"FOREIGN KEY(memberID) int REFERENCES reviewsTable(RestaurantName);";
-			stmt.execute(sql);
-
-
-		} catch(SQLException e) {
-			e.printStackTrace(); 
-		}
+	
+	public String toString() {
+		return "Restaurant: " + name + "\nOwner: " + owner + "\nLocation :" + location + "\nType of Food :" + typeOfFood + "\n + Average Rating :" + Integer.toString(averageRating);
 	}
 }

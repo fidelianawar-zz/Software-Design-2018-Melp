@@ -12,7 +12,7 @@ public class VulgarWordsTests {
 	 */
 	@Test
 	public void disapprovedReview() {
-		RestaurantReview review = new RestaurantReview("This place was terrible. The owner is extremely dumb", 1, "Rastall");
+		RestaurantReview review = new RestaurantReview("member A", "This place was terrible. The owner is extremely dumb", 1, "Rastall");
 		assertEquals(review.approveRequest(), false);
 	}
 	
@@ -21,7 +21,7 @@ public class VulgarWordsTests {
 	 */
 	@Test
 	public void approvedReview() {
-		RestaurantReview review = new RestaurantReview("This place was great! I loved the food here.", 5, "The Preserve");
+		RestaurantReview review = new RestaurantReview("member A", "This place was great! I loved the food here.", 5, "The Preserve");
 		boolean test = review.approveRequest();
 		assertEquals(test, true);
 	}

@@ -81,19 +81,25 @@ public class WriteAReviewController {
 		RestaurantReview new_review = new RestaurantReview(restaurant_review, number_of_stars, restaurant_name);
 		if (number_of_stars != 0) {
 			if (new_review.approveRequest()) {
-				reviewer.addReviewToMyReviews(new_review);
-				addReviewToDatabase(new_review);
-				Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-				next_stage.setTitle("View Review");
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
-				ViewReviewController controller = new ViewReviewController();
-				controller.setReview(new_review);
-				controller.setMember(reviewer);
-				loader.setController(controller);
-				Parent root = loader.load();
-				Scene scene = new Scene(root);
-				next_stage.setScene(scene);
-			}
+				if (new_review.isNotSpam(reviewer, restaurant_name)) {
+					reviewer.addReviewToMyReviews(new_review);
+					reviewer.addRestaurantToMyRestaurants(new_review.getRestaurantUnderReview());
+					addReviewToDatabase(new_review);
+					Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+					next_stage.setTitle("View Review");
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
+					ViewReviewController controller = new ViewReviewController();
+					controller.setReview(new_review);
+					controller.setMember(reviewer);
+					loader.setController(controller);
+					Parent root = loader.load();
+					Scene scene = new Scene(root);
+					next_stage.setScene(scene);
+				}
+				else {
+					headerLabel.setText("You have already reviewed this restaurant today. No spam allowed!");
+				}
+			} 
 			else {
 				headerLabel.setText("Your review was vulgar. Try again");
 				reviewer.incrementVulgarPosts();
@@ -103,7 +109,6 @@ public class WriteAReviewController {
 				}
 			}
 		}
-
 		else {
 
 			headerLabel.setText("You must give the restaurant a number of stars (1-5)");

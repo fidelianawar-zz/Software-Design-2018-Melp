@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
 * The RestaurantReview class creates the type RestaurantReview.
 */
 public class RestaurantReview {
+	private Date dateReviewed;
+	
 	public String getContent() {
 		return content;
 	}
@@ -42,6 +46,7 @@ public class RestaurantReview {
 		this.content = content;
 		this.rating = rating;
 		this.restaurantUnderReview = restaurantUnderReview;
+		dateReviewed = new Date();
 	}
 	
 	/**
@@ -58,6 +63,21 @@ public class RestaurantReview {
 			}
 		}
 		return true;	
+	}
+	
+	/**
+	 * @return true if a review is not spam
+	 */
+	public boolean isNotSpam(MelpMember currentReviewer, String restaurantUnderReview) {
+		//if the current reviewer has not posted a review for this restaurant in 1 day
+		Date currentDate = new Date();
+		if(!currentReviewer.getMy_restaurants().contains(restaurantUnderReview)) {
+			//if date reviewed is before current date
+			if(dateReviewed.before(currentDate)) { 
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public String toString() {

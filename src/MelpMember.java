@@ -55,7 +55,6 @@ public class MelpMember{
 	
 	public void deleteLastReview() {
 		my_reviews.remove(my_reviews.size() - 1);
-		System.out.println(my_reviews.remove(my_reviews.size() - 1));
 	}
 	
 	public void setStatus(boolean memberStatus) {

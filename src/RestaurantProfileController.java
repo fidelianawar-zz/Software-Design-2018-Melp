@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -5,12 +6,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 /**
 * This class controls the GUI for the restaurant profile.
 */
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
 public class RestaurantProfileController {
 	
@@ -23,17 +30,26 @@ public class RestaurantProfileController {
 	private String restaurant_name;
 	private Restaurant curr_restaurant;
 	private static String PORT_NUMBER = "3306";
-	
-	/**
-	* Grabs a restaurant from the database
-	* @throws SQLException
-	*/
 
+	@FXML
+	void returnHome(ActionEvent event) throws IOException {
+		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("MELP!");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageUI.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
+	}
+	
 	public RestaurantProfileController(String restaurant_name) throws SQLException {
 		this.restaurant_name = restaurant_name;
 		getRestaurantFromDatabase();
 	}
 	
+	/**
+	* Grabs a restaurant from the database 
+	* @throws SQLException
+	*/
 	private void getRestaurantFromDatabase() throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
@@ -55,7 +71,6 @@ public class RestaurantProfileController {
 			stars = rs.getInt("stars");
 			String review = rs.getString("review");
 			RestaurantReview current = new RestaurantReview(reviewer, review, stars, restaurant_name);
-			System.out.println(current);
 			curr_restaurant.addReview(current);
 		}
 	}

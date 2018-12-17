@@ -55,16 +55,16 @@ public class WriteReview implements Command {
 	* Not yet implemented
 	*/
 	public void undo() throws IOException {
-		current_member.deleteLastReview();
-    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	next_stage.setTitle("My Profile");
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
-        UserProfileController controller = new UserProfileController();
-        controller.setMember(current_member);
-        loader.setController(controller);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-    	next_stage.setScene(scene);
+		if (current_member.deleteLastReview() != null) {
+	    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    	next_stage.setTitle("My Profile");
+	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+	        UserProfileController controller = new UserProfileController();
+	        controller.setMember(current_member);
+	        loader.setController(controller);
+	        Parent root = loader.load();
+	        Scene scene = new Scene(root);
+	    	next_stage.setScene(scene);
+		}
 	}
-	
 }

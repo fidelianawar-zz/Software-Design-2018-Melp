@@ -61,8 +61,15 @@ public class MelpMember{
 		return my_restaurants;
 	}
 	
-	public void deleteLastReview() {
-		my_reviews.remove(my_reviews.size() - 1);
+	public RestaurantReview deleteLastReview() {
+		if (my_reviews.size() != 0) {
+			RestaurantReview reviewToRemove = my_reviews.get(my_reviews.size() - 1);
+			my_reviews.remove(my_reviews.size() - 1);
+			return reviewToRemove;
+		}
+		else {
+			return null;
+		}
 	}
 	
 	public void setStatus(boolean memberStatus) {

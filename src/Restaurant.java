@@ -28,12 +28,10 @@ public class Restaurant {
 		this.typeOfFood = typeOfFood;
 	}
 	
-<<<<<<< HEAD
 	/**
 	* Adds a review to the list of reviews
 	* @param the current review to be added
 	*/
-=======
 	public String getReviews() {
 		String output = null;
 		for (int i = 0; i < reviews.size(); i++) {
@@ -43,7 +41,6 @@ public class Restaurant {
 		return output;
 	}
 	
->>>>>>> branch 'master' of https://github.com/SoftwareDesign20182019/AWSarahFideliaLauren.git
 	public void addReview(RestaurantReview curr_review) {
 		reviews.add(curr_review);
 	}

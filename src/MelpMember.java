@@ -93,13 +93,10 @@ public class MelpMember{
 		return my_restaurants;
 	}
 	
-<<<<<<< HEAD
 	/**
 	* Deletes the last review from the ArrayList of reviews
 	* @return the review to be deleted
 	*/
-=======
->>>>>>> branch 'master' of https://github.com/SoftwareDesign20182019/AWSarahFideliaLauren.git
 	public RestaurantReview deleteLastReview() {
 		if (my_reviews.size() != 0) {
 			RestaurantReview reviewToRemove = my_reviews.get(my_reviews.size() - 1);

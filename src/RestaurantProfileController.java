@@ -6,15 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-<<<<<<< HEAD
 
 /**
 * This class controls the GUI for the restaurant profile.
 */
-=======
 import javafx.scene.control.TextArea;
 
->>>>>>> branch 'master' of https://github.com/SoftwareDesign20182019/AWSarahFideliaLauren.git
 public class RestaurantProfileController {
 	
 	@FXML
@@ -27,18 +24,16 @@ public class RestaurantProfileController {
 	private Restaurant curr_restaurant;
 	private static String PORT_NUMBER = "3306";
 	
-<<<<<<< HEAD
 	/**
 	* Grabs a restaurant from the database
 	* @throws SQLException
 	*/
-=======
+
 	public RestaurantProfileController(String restaurant_name) throws SQLException {
 		this.restaurant_name = restaurant_name;
 		getRestaurantFromDatabase();
 	}
 	
->>>>>>> branch 'master' of https://github.com/SoftwareDesign20182019/AWSarahFideliaLauren.git
 	private void getRestaurantFromDatabase() throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();

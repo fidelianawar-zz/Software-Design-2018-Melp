@@ -35,9 +35,9 @@ public class CreateMelpDatabase {
 			stmt.execute("create table users (username varchar(50), password varchar(50), primary key(username));");
 			stmt.execute("create table restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, primary key (RestaurantName));");
 			stmt.execute("create table reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
-			addRestaurant("Rastall", "Bon Apetite", "CC", "Eclectic", 2);
-			addRestaurant("Benjis", "Bon Apetite", "CC", "Grill", 4);
-			addRestaurant("Preserve", "Bon Apetite", "CC", "Grill", 5);
+			addRestaurant("Rastall", "Bon Apetite", "CC", "Eclectic", 2, "https://coloradocollege.cafebonappetit.com/cafe/rastall-dining-hall/");
+			addRestaurant("Benjis", "Bon Apetite", "CC", "Grill", 4, "https://coloradocollege.cafebonappetit.com/cafe/benjamins/");
+			addRestaurant("Preserve", "Bon Apetite", "CC", "Grill", 5, "https://coloradocollege.cafebonappetit.com/cafe/the-preserve/");
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -182,6 +182,7 @@ public class CreateMelpDatabase {
 	* @param the name of the table
 	* @parm the connection
 	*/
+	
 	public static boolean checkIfTableExists(String tablename, Connection conn) {
 		try {
 			DatabaseMetaData dbm = conn.getMetaData();
@@ -206,11 +207,11 @@ public class CreateMelpDatabase {
 	* @param the location of the restaurant
 	* @param the type of food of the restaurant
 	* @param the average rating of the restaurant
-	 * @throws SQLException 
+	* @throws SQLException 
 	*/
-	public void addRestaurant(String name, String owner, String location, String type, int rating) throws SQLException {
+	public void addRestaurant(String name, String owner, String location, String type, int rating, String url) throws SQLException {
 		Statement stmt = conn.createStatement();
-		String concatenate = "'" + name + "', '" + owner + "', '" + location + "', '" + type + "', '" + rating + "'";
+		String concatenate = "'" + name + "', '" + owner + "', '" + location + "', '" + type + "', '" + rating + "', '" + url + "'";
 		stmt.execute("insert into restaurants values (" + concatenate + ");");
 	}
 }

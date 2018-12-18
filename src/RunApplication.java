@@ -16,6 +16,7 @@ public class RunApplication extends Application {
 	*/
      @Override
     public void start(Stage primaryStage) throws Exception {
+    	loadDatabase();
          // just load fxml file and display it in the stage:
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageUI.fxml"));
         Parent root = loader.load();
@@ -24,6 +25,11 @@ public class RunApplication extends Application {
         primaryStage.setTitle("MELP!");
         primaryStage.show();
     }
+     
+     private void loadDatabase() {
+    	 CreateMelpDatabase db = new CreateMelpDatabase();
+    	 db.loadDatabase();
+     }
      
      /**
      * Main method to support non-JavaFX-aware environments

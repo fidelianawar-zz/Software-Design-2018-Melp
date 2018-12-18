@@ -32,9 +32,9 @@ public class CreateMelpDatabase {
 			stmt.execute("create database if not exists MelpDatabase");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 			stmt = conn.createStatement();
-			stmt.execute("create table users (username varchar(50), password varchar(50), primary key(username));");
-			stmt.execute("create table restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, primary key (RestaurantName));");
-			stmt.execute("create table reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
+			stmt.execute("create table if not exists users (username varchar(50), password varchar(50), primary key(username));");
+			stmt.execute("create table if not exists restaurants (RestaurantName varchar(50), Owner varchar(50), Location varchar(50), TypeOfFood varchar(50), AverageRating int, RestaurantURL varchar(500), primary key (RestaurantName));");
+			stmt.execute("create table if not exists reviews (reviewer varchar(50), restaurant varchar(50), stars int, review varchar(500), foreign key(reviewer) references users(username), foreign key(restaurant) references restaurants(RestaurantName));");
 			addRestaurant("Rastall", "Bon Apetite", "CC", "Eclectic", 2, "https://coloradocollege.cafebonappetit.com/cafe/rastall-dining-hall/");
 			addRestaurant("Benjis", "Bon Apetite", "CC", "Grill", 4, "https://coloradocollege.cafebonappetit.com/cafe/benjamins/");
 			addRestaurant("Preserve", "Bon Apetite", "CC", "Grill", 5, "https://coloradocollege.cafebonappetit.com/cafe/the-preserve/");
@@ -127,7 +127,7 @@ public class CreateMelpDatabase {
 	
 	public boolean searchRestaurants(String restaurant_name) {
 		try {
-    		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+    		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 			Statement stmt = conn.createStatement();
 	    	ResultSet rs = stmt.executeQuery("select RestaurantName from restaurants where RestaurantName='" + restaurant_name + "'");
 	    	ArrayList<String> restaurants = new ArrayList<String>();
@@ -221,8 +221,9 @@ public class CreateMelpDatabase {
 	* @throws SQLException 
 	*/
 	public void addRestaurant(String name, String owner, String location, String type, int rating, String url) throws SQLException {
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
-		String concatenate = "'" + name + "', '" + owner + "', '" + location + "', '" + type + "', '" + rating + "', '" + url + "'";
-		stmt.execute("insert into restaurants values (" + concatenate + ");");
+		String concatenate = "('" + name + "', '" + owner + "', '" + location + "', '" + type + "', '" + rating + "', '" + url + "');";
+		stmt.execute("insert into restaurants values " + concatenate);
 	}
 }

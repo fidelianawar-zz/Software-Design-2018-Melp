@@ -29,7 +29,7 @@ public class RestaurantProfileController {
 	
 	private String restaurant_name;
 	private Restaurant curr_restaurant;
-	private static String PORT_NUMBER = "3306";
+	private CreateMelpDatabase db = new CreateMelpDatabase();
 
 	@FXML
 	void returnHome(ActionEvent event) throws IOException {
@@ -51,28 +51,7 @@ public class RestaurantProfileController {
 	* @throws SQLException
 	*/
 	private void getRestaurantFromDatabase() throws SQLException {
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
-		Statement stmt = conn.createStatement();
-		String query = "select * from restaurants where RestaurantName = '" + restaurant_name + "'";
-		ResultSet rs = stmt.executeQuery(query);
-		rs.next();
-		String restaurant_name = rs.getString("RestaurantName");
-		String owner = rs.getString("Owner");
-		String location = rs.getString("Location");
-		String type_of_food = rs.getString("TypeOfFood");
-		int stars = rs.getInt("AverageRating");
-		curr_restaurant = new Restaurant(restaurant_name, owner, stars, type_of_food, location);
-		
-		query = "select * from reviews where restaurant='" + restaurant_name + "'";
-		rs = stmt.executeQuery(query);
-		while(rs.next()) {
-			String reviewer = rs.getString("reviewer");
-			String restaurant = rs.getString("restaurant");
-			stars = rs.getInt("stars");
-			String review = rs.getString("review");
-			RestaurantReview current = new RestaurantReview(reviewer, review, stars, restaurant_name);
-			curr_restaurant.addReview(current);
-		}
+		curr_restaurant = db.getRestaurantsFromDatabase(restaurant_name);
 	}
 	
 	/**

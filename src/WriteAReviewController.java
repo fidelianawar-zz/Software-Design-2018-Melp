@@ -29,7 +29,7 @@ public class WriteAReviewController {
 	private int number_of_stars = 0;
 	private String restaurant_review;
 	private MelpMember reviewer;
-	private static final int PORT_NUMBER = 3306;
+	private CreateMelpDatabase db = new CreateMelpDatabase();
 
 	@FXML
 	private ResourceBundle resources;
@@ -54,18 +54,7 @@ public class WriteAReviewController {
 	* @param the current restaurant review
 	*/
 	public void addReviewToDatabase(RestaurantReview curr_rev) {
-		try {
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
-			Statement stmt = conn.createStatement();
-			String member = "'" + reviewer.getName() + "', ";
-			String restaurant = "'" + curr_rev.getRestaurantUnderReview() + "', ";
-			String stars = "'" + Integer.toString(curr_rev.getRating()) + "', ";
-			String review = "'" + curr_rev.getContent() + "'";
-			String command = member + restaurant + stars + review;
-			stmt.execute("insert into reviews values (" + command + ");");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		db.addReview(reviewer, curr_rev);
 	}
 
 	/**
@@ -74,19 +63,7 @@ public class WriteAReviewController {
 	* @return true if the restaurant is successfully added to database
 	*/
 	public boolean restaurantInDatabase() throws SQLException {
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select RestaurantName from restaurants");
-		ArrayList<String> restaurant_names = new ArrayList<String>();
-		while(rs.next()) {
-			restaurant_names.add(rs.getString("RestaurantName"));
-		}
-		if (restaurant_names.contains(restaurant_name)) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return db.searchRestaurants(restaurant_name);
 	}
 
 	/**

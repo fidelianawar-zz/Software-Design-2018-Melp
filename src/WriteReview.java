@@ -1,5 +1,6 @@
 import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -21,6 +22,7 @@ import java.io.IOException;
 public class WriteReview implements Command {
 	private ActionEvent event;
 	private MelpMember current_member;
+	private CreateMelpDatabase db = new CreateMelpDatabase();
 	
 	/**
 	* Constructor for WriteReview instances.
@@ -52,9 +54,12 @@ public class WriteReview implements Command {
 	/**
 	* This method undoes the command to write a review and effectively deletes a review.
 	* @throws IOException
+	 * @throws SQLException 
 	*/
-	public void undo() throws IOException {
-		if (current_member.deleteLastReview() != null) {
+	public void undo() throws IOException, SQLException {
+		RestaurantReview last_rev = current_member.deleteLastReview();
+		if (last_rev != null) {
+			db.removeReview(last_rev);
 	    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	    	next_stage.setTitle("My Profile");
 	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));

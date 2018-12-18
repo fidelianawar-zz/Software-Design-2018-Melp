@@ -81,6 +81,10 @@ public class RestaurantReview {
 	 * @return true if the request is approved
 	 */
 	
+	public String getReviewer() {
+		return reviewer;
+	}
+	
 	public boolean approveRequest() {
 		String[] words = content.split(" ");
 		for(String word: words) {

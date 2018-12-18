@@ -114,6 +114,17 @@ public class CreateMelpDatabase {
 		return curr_restaurant;
 	}
 	
+	public void removeReview(RestaurantReview remove_review) throws SQLException {
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+		Statement stmt = conn.createStatement();
+		String user = "reviewer='" + remove_review.getReviewer() + "' and ";
+		String restaurant = "restaurant='" + remove_review.getRestaurantUnderReview() + "' and ";
+		String stars = "stars='" + Integer.toString(remove_review.getRating()) + "' and ";
+		String review = "review='" + remove_review.getContent() + "'";
+		String command = user + restaurant + stars + review;
+		stmt.execute("delete from reviews where " + command);
+	}
+	
 	public boolean searchRestaurants(String restaurant_name) {
 		try {
     		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");

@@ -55,7 +55,7 @@ public class UserProfileController {
     	String all_reviews = "";
     	ArrayList<RestaurantReview> member_reviews = current_member.getMy_reviews();
 		for (int i = 0; i < member_reviews.size(); i++) {
-			all_reviews += member_reviews.get(i);
+			all_reviews += member_reviews.get(i).getReviewsWithoutMember();
 			all_reviews += "\n\n";
 		}
     	reviews.setText(all_reviews);

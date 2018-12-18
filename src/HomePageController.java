@@ -37,7 +37,13 @@ public class HomePageController {
     private Label title;
 
     @FXML
-    void logIn(ActionEvent event) {
+    void logIn(ActionEvent event) throws IOException {
+    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("Log In");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("LogInUI.fxml"));
+    	Parent root = loader.load();
+    	Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
     }
 
     /**

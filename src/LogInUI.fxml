@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="393.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="LogInController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Button layoutY="151.0" mnemonicParsing="false" onAction="#logIn" text="Log In" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="183.0" />
+    <TextField fx:id="username_field" layoutY="59.0" prefWidth="200.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="73.0" />
+    <TextField fx:id="password_field" layoutY="105.0" prefWidth="200.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="73.0" />
+    <Label layoutY="62.0" text="Username:" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="301.0" />
+    <Label layoutY="105.0" text="Password" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="316.0" />
+    <Label layoutY="250.0" text="Don't have an account?" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="94.0" />
+    <Button layoutY="290.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="172.0" />
+    <Label fx:id="header" alignment="CENTER" layoutY="14.0" prefWidth="500.0" text="" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+  </children>
+</AnchorPane>

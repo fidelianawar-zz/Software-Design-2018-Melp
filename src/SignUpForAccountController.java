@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -60,28 +61,58 @@ public class SignUpForAccountController {
     		e.printStackTrace();
     	}
     }
+    
+    public boolean userInDatabase(String input) throws SQLException {
+    	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+		Statement stmt = conn.createStatement();
+		String query = "select username from users where username = '" + input + "'";
+		ResultSet rs = stmt.executeQuery(query);
+		if (rs.next()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+    }
 
     /**
     * Creates a user
     * @param the event of the user
     * @throws IOException
+     * @throws SQLException 
     */
+    
     @FXML
-    void createUser(ActionEvent event) throws IOException {
+    void logIn(ActionEvent event) throws IOException {
+    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("Log In");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("LogInUI.fxml"));
+    	Parent root = loader.load();
+    	Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
+    }
+    
+    @FXML
+    void createUser(ActionEvent event) throws IOException, SQLException {
+    	user_name = username.getText();
+    	pass_word = password.getText();
     	if (!account_type.equals("")) {
-	    	user_name = username.getText();
-	    	pass_word = password.getText();
-	    	MelpMember newmember = new MelpMember(user_name, pass_word);
-	    	addMemberToDatabase();
-	    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-	    	next_stage.setTitle("My Profile");
-	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
-	        UserProfileController controller = new UserProfileController();
-	        controller.setMember(newmember);
-	        loader.setController(controller);
-	        Parent root = loader.load();
-	        Scene scene = new Scene(root);
-	    	next_stage.setScene(scene);
+    		if (!userInDatabase(user_name)) {
+		    	MelpMember newmember = new MelpMember(user_name, pass_word);
+		    	addMemberToDatabase();
+		    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		    	next_stage.setTitle("My Profile");
+		    	FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfileUI.fxml"));
+		        UserProfileController controller = new UserProfileController();
+		        controller.setMember(newmember);
+		        loader.setController(controller);
+		        Parent root = loader.load();
+		        Scene scene = new Scene(root);
+		    	next_stage.setScene(scene);
+    		}
+    		else {
+    			error_check.setText("That username has been taken.");
+    		}
     	}
     	else {
     		error_check.setText("You must choose an account type");

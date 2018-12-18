@@ -114,8 +114,13 @@ public class RestaurantReview {
     * Converts the review to a string
     * @return the String representation of the review
     */
+	public String getReviewsWithoutMember() {
+		String reviewString = "Reviewed " + restaurantUnderReview + ": " + content + "\n" + "Rating: " + rating + " stars";
+		return reviewString;
+	}
+	
 	public String toString() {
-		String reviewString = "Review of " + restaurantUnderReview + ": " + content + "\n" + "Rating: " + rating + " stars";
+		String reviewString = reviewer + " reviewed " + restaurantUnderReview + ": " + content + "\n" + "Rating: " + rating + " stars";
 		return reviewString;
 	}
 	

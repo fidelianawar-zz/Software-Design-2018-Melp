@@ -11,7 +11,7 @@
   <children>
     <ImageView fx:id="user_image" fitHeight="262.0" fitWidth="262.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
     <Button layoutX="60.0" layoutY="304.0" mnemonicParsing="false" text="Edit Profile" />
-    <Button layoutX="376.0" layoutY="304.0" mnemonicParsing="false" onAction="#writeNewReview" text="Write Review" />
+    <Button layoutX="376.0" layoutY="304.0" mnemonicParsing="false" onAction="#writeNewReview" style="" text="Write Review" />
     <Label fx:id="username_field" layoutX="320.0" layoutY="78.0" prefWidth="272.0" />
     <Label fx:id="password_field" layoutX="320.0" layoutY="178.0" prefWidth="264.0" />
     <Button layoutX="409.0" layoutY="490.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />

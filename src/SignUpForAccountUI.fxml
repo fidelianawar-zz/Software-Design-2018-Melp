@@ -8,16 +8,18 @@
 <AnchorPane prefHeight="458.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="SignUpForAccountController">
   <!-- TODO Add Nodes -->
   <children>
-    <MenuButton fx:id="account_types" mnemonicParsing="false" prefWidth="253.0" AnchorPane.bottomAnchor="279.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="126.0">
+    <MenuButton fx:id="account_types" layoutY="64.0" mnemonicParsing="false" prefWidth="253.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="98.0">
       <items>
         <MenuItem mnemonicParsing="false" onAction="#selectAccountTypeAdmin" text="Administrator" />
         <MenuItem mnemonicParsing="false" onAction="#selectAccountTypeOwner" text="Owner" />
         <MenuItem mnemonicParsing="false" onAction="#selectAccountTypeMember" text="Member" />
       </items>
     </MenuButton>
-    <TextField fx:id="username" prefWidth="200.0" text="username" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="206.0" />
-    <TextField fx:id="password" prefWidth="200.0" text="password" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="276.0" />
-    <Button mnemonicParsing="false" onAction="#createUser" text="Create Account" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="360.0" />
-    <Label fx:id="error_check" alignment="CENTER" prefWidth="422.0" text="" textAlignment="CENTER" AnchorPane.bottomAnchor="353.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="65.0" />
+    <TextField fx:id="username" layoutY="117.0" prefWidth="200.0" text="username" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" />
+    <TextField fx:id="password" layoutY="163.0" prefWidth="200.0" text="password" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" />
+    <Button layoutY="209.0" mnemonicParsing="false" onAction="#createUser" text="Create Account" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="98.0" />
+    <Label fx:id="error_check" alignment="CENTER" prefWidth="422.0" text="" textAlignment="CENTER" AnchorPane.bottomAnchor="394.0" AnchorPane.leftAnchor="14.5" AnchorPane.rightAnchor="13.5" AnchorPane.topAnchor="24.0" />
+    <Label layoutY="313.0" text="Already have an Account?" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="54.0" />
+    <Button layoutY="353.0" mnemonicParsing="false" onAction="#logIn" text="Log In" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="158.0" />
   </children>
 </AnchorPane>

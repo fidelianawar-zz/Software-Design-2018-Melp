@@ -1,7 +1,5 @@
 import java.io.IOException;
 import java.net.URL;
-import java.sql.DriverManager;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

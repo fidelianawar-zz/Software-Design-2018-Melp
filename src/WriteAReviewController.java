@@ -1,11 +1,6 @@
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -97,29 +91,29 @@ public class WriteAReviewController {
 		RestaurantReview new_review = new RestaurantReview(reviewer.getName(), restaurant_review, number_of_stars, restaurant_name);
 		if (number_of_stars != 0) {
 			if (new_review.approveRequest()) {
-//				if (new_review.isNotSpam(reviewer, restaurant_name)) {
-				if (restaurantInDatabase()) {
-					reviewer.addReviewToMyReviews(new_review);
-					reviewer.addRestaurantToMyRestaurants(new_review.getRestaurantUnderReview());
-					addReviewToDatabase(new_review);
-					Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-					next_stage.setTitle("View Review");
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
-					ViewReviewController controller = new ViewReviewController();
-					controller.setReview(new_review);
-					controller.setMember(reviewer);
-					loader.setController(controller);
-					Parent root = loader.load();
-					Scene scene = new Scene(root);
-					next_stage.setScene(scene);
+				if (new_review.isNotSpam(reviewer, restaurant_name)) {
+					if (restaurantInDatabase()) {
+						reviewer.addReviewToMyReviews(new_review);
+						reviewer.addRestaurantToMyRestaurants(new_review.getRestaurantUnderReview());
+						addReviewToDatabase(new_review);
+						Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+						next_stage.setTitle("View Review");
+						FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewReviewUI.fxml"));
+						ViewReviewController controller = new ViewReviewController();
+						controller.setReview(new_review);
+						controller.setMember(reviewer);
+						loader.setController(controller);
+						Parent root = loader.load();
+						Scene scene = new Scene(root);
+						next_stage.setScene(scene);
+					}
+					else {
+						headerLabel.setText("This restaurant is not in our system. You can't write a review for it yet.");
+					}
 				}
 				else {
-					headerLabel.setText("This restaurant is not in our system. You can't write a review for it yet.");
+					headerLabel.setText("You have already reviewed this restaurant. No spam allowed!");
 				}
-//				}
-//				else {
-//					headerLabel.setText("You have already reviewed this restaurant today. No spam allowed!");
-//				}
 			} 
 			else {
 				headerLabel.setText("Your review was vulgar. Try again");

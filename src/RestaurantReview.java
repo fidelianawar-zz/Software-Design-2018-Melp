@@ -96,19 +96,15 @@ public class RestaurantReview {
 	/**
 	 * Checks if a review is spam
 	 * @return true if a review is not spam
-	 * Still in progress
 	 */
-//	public boolean isNotSpam(MelpMember currentReviewer, String restaurantUnderReview) {
-//		//if the current reviewer has not posted a review for this restaurant in 1 day
-//		Date currentDate = new Date();
-//		if(!currentReviewer.getMy_restaurants().contains(restaurantUnderReview)) {
-//			//if date reviewed is before current date
-//			if(dateReviewed.before(currentDate)) { 
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
+	public boolean isNotSpam(MelpMember currentReviewer, String restaurantUnderReview) {
+		if(!currentReviewer.getMy_restaurants().contains(restaurantUnderReview)) {
+				return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
     /**
     * Converts the review to a string

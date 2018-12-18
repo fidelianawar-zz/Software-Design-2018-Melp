@@ -1,10 +1,6 @@
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +15,6 @@ import javafx.stage.Stage;
 
 public class LogInController {
 	
-	public static final String PORT_NUMBER = "3306";
 	private String username;
 	private String password;
 	private CreateMelpDatabase db = new CreateMelpDatabase();

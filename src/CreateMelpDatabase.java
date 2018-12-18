@@ -101,7 +101,7 @@ public class CreateMelpDatabase {
 		String location = rs.getString("Location");
 		String type_of_food = rs.getString("TypeOfFood");
 		int stars = rs.getInt("AverageRating");
-		Restaurant curr_restaurant = new Restaurant(restaurant_name, owner, stars, type_of_food, location);
+		Restaurant curr_restaurant = new Restaurant(restaurant_name, owner, stars, type_of_food, location, ""); //this should be the url
 		query = "select * from reviews where restaurant='" + restaurant_name + "'";
 		rs = stmt.executeQuery(query);
 		while(rs.next()) {

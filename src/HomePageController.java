@@ -21,8 +21,6 @@ import java.sql.Statement;
 * This class controls the GUI for the home page.
 */
 public class HomePageController {
-	
-	public static final String PORT_NUMBER = "3306";
 
     @FXML
     private ResourceBundle resources;
@@ -55,7 +53,7 @@ public class HomePageController {
     void searchRestaurants(ActionEvent event) throws IOException {
     	String restaurant_name = restaurant_query.getText();
     	try {
-    		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+    		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + CreateMelpDatabase.PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 			Statement stmt = conn.createStatement();
 	    	ResultSet rs = stmt.executeQuery("select RestaurantName from restaurants where RestaurantName='" + restaurant_name + "'");
 	    	ArrayList<String> restaurants = new ArrayList<String>();

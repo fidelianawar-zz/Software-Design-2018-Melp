@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 
 public class LogInController {
 	
-	public static final String PORT_NUMBER = "3306";
 	private String username;
 	private String password;
 
@@ -52,7 +51,7 @@ public class LogInController {
     void logIn(ActionEvent event) throws SQLException, IOException {
     	username = username_field.getText();
     	password = password_field.getText();
-    	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+    	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + CreateMelpDatabase.PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select * from users where username = '" + username + "'");
 		rs.next();

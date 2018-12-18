@@ -25,7 +25,6 @@ public class SignUpForAccountController {
 	private String account_type = "";
 	private String user_name;
 	private String pass_word;
-	private static final String PORT_NUMBER = "3306";
 
     @FXML
     private ResourceBundle resources;
@@ -50,7 +49,7 @@ public class SignUpForAccountController {
     */
     public void addMemberToDatabase() {
     	try {
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + CreateMelpDatabase.PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 			Statement stmt = conn.createStatement();
 			String username = "'" + user_name + "', ";
 			String password = "'" + pass_word + "'";
@@ -63,7 +62,7 @@ public class SignUpForAccountController {
     }
     
     public boolean userInDatabase(String input) throws SQLException {
-    	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+    	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + CreateMelpDatabase.PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
 		String query = "select username from users where username = '" + input + "'";
 		ResultSet rs = stmt.executeQuery(query);

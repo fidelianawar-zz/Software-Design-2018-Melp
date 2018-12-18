@@ -11,6 +11,7 @@ public class Restaurant {
 	private String location;
 	private String typeOfFood;
 	private ArrayList<RestaurantReview> reviews = new ArrayList<RestaurantReview>();
+	private String linkToWebsite;
 
 	/**
 	 * Constructor for the Restaurant class. Initializes instance variable of name.
@@ -20,12 +21,21 @@ public class Restaurant {
 	 * @param the location of the restaurant
 	 * @param the type of food of the restaurant
 	 */
-	public Restaurant(String name, String owner, int averageRating, String location, String typeOfFood) {
+	public Restaurant(String name, String owner, int averageRating, String location, String typeOfFood, String linkToWebsite) {
 		this.name = name;
 		this.owner = owner;
 		this.averageRating = averageRating;
 		this.location = location;
 		this.typeOfFood = typeOfFood;
+		this.linkToWebsite = linkToWebsite;
+	}
+	
+	/**
+	* Gets the link to the website
+	* @return the link
+	*/
+	public String getLinkToWebsite() {
+		return linkToWebsite;
 	}
 	
 	/**

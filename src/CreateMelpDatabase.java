@@ -10,7 +10,7 @@ import java.sql.Statement;
 */
 public class CreateMelpDatabase {
 	
-	private static final String PORT_NUMBER = "3306";
+	public static final String PORT_NUMBER = "3306";
 
 	/**
 	* This class checks if a table exists.

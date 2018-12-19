@@ -174,7 +174,11 @@ public class CreateMelpDatabase {
 		}
 		return output;
 	}
-	
+	/**
+	 * This searches the users and sees if the user is in the database
+	 * @param user_name - the user to search for
+	 * @return true if they are in, false if they are not
+	 */
 	public boolean searchUsers(String user_name) {
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");

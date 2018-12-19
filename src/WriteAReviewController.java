@@ -109,14 +109,17 @@ public class WriteAReviewController {
 					}
 					else {
 						headerLabel.setText("This restaurant is not in our system. You can't write a review for it yet.");
+						headerLabel.setStyle("-fx-text-fill: red");
 					}
 				}
 				else {
 					headerLabel.setText("You have already reviewed this restaurant. No spam allowed!");
+					headerLabel.setStyle("-fx-text-fill: red");
 				}
 			} 
 			else {
 				headerLabel.setText("Your review was vulgar. Try again");
+				headerLabel.setStyle("-fx-text-fill: red");
 				reviewer.incrementVulgarPosts();
 				if(reviewer.maxVulgarPosts()) {
 					reviewer.blockUser();
@@ -126,6 +129,7 @@ public class WriteAReviewController {
 		}
 		else {
 			headerLabel.setText("You must give the restaurant a number of stars (1-5)");
+			headerLabel.setStyle("-fx-text-fill: red");
 		}
 	}
 

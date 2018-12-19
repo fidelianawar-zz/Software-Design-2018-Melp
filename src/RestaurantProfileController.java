@@ -1,4 +1,6 @@
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -9,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 /**
 * This class controls the GUI for the restaurant profile.
 */
@@ -23,6 +26,9 @@ public class RestaurantProfileController {
 	@FXML
 	private TextArea reviews_area;
 	
+	@FXML
+	private Hyperlink website;
+	
 	private String restaurant_name;
 	private Restaurant curr_restaurant;
 	private CreateMelpDatabase db = new CreateMelpDatabase();
@@ -35,6 +41,18 @@ public class RestaurantProfileController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
     	next_stage.setScene(scene);
+	}
+	
+	@FXML
+	void visitWebsite(ActionEvent event) {
+		try {
+			  Desktop desktop = java.awt.Desktop.getDesktop();
+			  URI oURL = new URI(curr_restaurant.getLinkToWebsite());
+			  desktop.browse(oURL);
+			} 
+		catch (Exception e) {
+		  e.printStackTrace();
+		}
 	}
 	
 	public RestaurantProfileController(String restaurant_name) throws SQLException {

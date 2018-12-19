@@ -59,6 +59,6 @@ public class Restaurant {
 	* @return the String representation of the restaurant
 	*/
 	public String toString() {
-		return "Restaurant: " + name + "\nOwner: " + owner + "\nLocation: " + location + "\nType of Food: " + typeOfFood + "\nAverage Rating: " + Integer.toString(averageRating);
+		return "Restaurant: " + name + "\nOwner: " + owner + "\nLocation: " + location + "\nType of Food: " + typeOfFood + "\nAverage Rating: " + Integer.toString(averageRating) + "\nWebsite Url: " + linkToWebsite;
 	}
 }

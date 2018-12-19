@@ -99,10 +99,12 @@ public class SignUpForAccountController {
     		}
     		else {
     			error_check.setText("That username has been taken.");
+    			error_check.setStyle("-fx-text-fill: red");
     		}
     	}
     	else {
     		error_check.setText("You must choose an account type");
+    		error_check.setStyle("-fx-text-fill: red");
     	}
     }
 

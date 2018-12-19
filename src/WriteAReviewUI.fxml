@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutY="101.0" text="Restaurant to be Reviewed:" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="371.0" />
@@ -22,7 +22,7 @@
     <Label layoutY="203.0" text="Restaurant Rating (out of 5)" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="365.0" />
     <Button layoutY="478.0" mnemonicParsing="false" onAction="#submitRestaurantReview" text="Submit Review" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="101.0" />
     <TextArea fx:id="review" layoutY="280.0" prefHeight="135.0" prefWidth="663.0" text="Type your restaurant review here" wrapText="true" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="68.0" />
-    <Label fx:id="headerLabel" layoutY="32.0" prefWidth="797.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" />
+    <Label fx:id="headerLabel" alignment="CENTER" layoutY="32.0" prefWidth="797.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" />
     <Button layoutY="478.0" mnemonicParsing="false" onAction="#returnToProfile" text="My Profile" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="488.0" />
   </children>
 </AnchorPane>

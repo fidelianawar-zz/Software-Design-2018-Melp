@@ -60,6 +60,7 @@ public class HomePageController {
     	String restaurant_name = restaurant_query.getText();
     	if (!db.searchRestaurants(restaurant_name)) {
     		title.setText("We don't know about that restaurant");
+    		title.setStyle("-fx-text-fill: red");
     	}
     	else {
     		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -90,6 +91,7 @@ public class HomePageController {
     	}
     	else {
     		title.setText("That user doesn't exist");
+    		title.setStyle("-fx-text-fill: red");
     	}
     }
 

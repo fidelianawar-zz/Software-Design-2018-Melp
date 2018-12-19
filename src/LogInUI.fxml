@@ -15,8 +15,12 @@
     <Label layoutY="62.0" text="Username:" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="301.0" />
     <Label layoutY="105.0" text="Password" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="316.0" />
     <Button layoutY="261.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" AnchorPane.leftAnchor="172.5" AnchorPane.rightAnchor="172.5" />
-    <Label fx:id="header" alignment="CENTER" layoutY="14.0" prefWidth="500.0" text="" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-    <Label layoutX="93.0" layoutY="221.0" text="Don't have an Account?" />
     <Button layoutY="352.0" mnemonicParsing="false" onAction="#returnHome" text="Return Home" AnchorPane.leftAnchor="137.0" AnchorPane.rightAnchor="136.0" />
+    <Label fx:id="header" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefWidth="472.0" text="">
+      <font>
+        <Font size="25.0" />
+      </font>
+    </Label>
+    <Label alignment="CENTER" layoutY="221.0" text="Don't have an Account?" AnchorPane.leftAnchor="92.5" AnchorPane.rightAnchor="91.5" />
   </children>
 </AnchorPane>

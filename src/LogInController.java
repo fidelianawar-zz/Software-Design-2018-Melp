@@ -52,12 +52,15 @@ public class LogInController {
     	switch (check_user_credentials) {
     	case 0:
     		header.setText("Incorrect Password");
+    		header.setStyle("-fx-text-fill: red");
     		break;
     	case 1:
     		header.setText("Incorrect Username");
+    		header.setStyle("-fx-text-fill: red");
     		break;
     	case 2:
     		header.setText("Unknown Username");
+    		header.setStyle("-fx-text-fill: red");
     		break;
     	}
     }

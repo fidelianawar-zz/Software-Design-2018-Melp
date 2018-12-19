@@ -5,15 +5,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="706.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="740.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
     <Label alignment="CENTER" contentDisplay="BOTTOM" layoutY="26.0" prefWidth="472.0" text="Restaurant Name" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-    <TextArea fx:id="reviews_area" editable="false" layoutY="402.0" prefHeight="216.0" prefWidth="472.0" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-    <Label layoutY="362.0" text="Reviews for this Restaurant" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="129.0" />
-    <Button layoutY="632.0" mnemonicParsing="false" style="" text="Post a Review" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="18.0" />
+    <TextArea fx:id="reviews_area" editable="false" layoutY="405.0" prefHeight="216.0" prefWidth="472.0" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+    <Label layoutY="365.0" text="Reviews for this Restaurant" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="129.0" />
+    <Button layoutY="635.0" mnemonicParsing="false" style="" text="Post a Review" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="18.0" />
     <Label layoutY="74.0" text="Description" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="335.0" />
-    <TextArea fx:id="description" editable="false" layoutY="126.0" prefHeight="216.0" prefWidth="472.0" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-    <Button layoutY="632.0" mnemonicParsing="false" onAction="#returnHome" style="" text="Home" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="334.0" />
+    <TextArea fx:id="description" editable="false" layoutY="126.0" prefHeight="146.0" prefWidth="472.0" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+    <Button layoutY="635.0" mnemonicParsing="false" onAction="#returnHome" style="" text="Home" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="334.0" />
+    <Hyperlink fx:id="website" layoutX="14.0" layoutY="299.0" onAction="#visitWebsite" text="Click here to go to the website" />
   </children>
 </AnchorPane>

@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 /*
-* This class tests that spam is correctly managed in the Melp system.
+* This class tests that spam is correctly managed in the Melp system so that a user cannot review the same restaurant twice.
 **/
 public class ManageSpamTests {
 

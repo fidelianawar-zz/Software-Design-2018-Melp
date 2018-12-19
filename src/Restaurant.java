@@ -19,6 +19,7 @@ public class Restaurant {
 	 * @param the average rating of the restaurant
 	 * @param the location of the restaurant
 	 * @param the type of food of the restaurant
+	 * @param the link to the website
 	 */
 	public Restaurant(String name, String owner, int averageRating, String location, String typeOfFood, String linkToWebsite) {
 		this.name = name;
@@ -38,8 +39,8 @@ public class Restaurant {
 	}
 	
 	/**
-	* Adds a review to the list of reviews
-	* @param the current review to be added
+	* Gets a review
+	* @return the grabbed review
 	*/
 	public String getReviews() {
 		String output = null;
@@ -50,6 +51,10 @@ public class Restaurant {
 		return output;
 	}
 	
+	/**
+	* Adds a review to the list of reviews
+	* @param the current review to be added
+	*/
 	public void addReview(RestaurantReview curr_review) {
 		reviews.add(curr_review);
 	}

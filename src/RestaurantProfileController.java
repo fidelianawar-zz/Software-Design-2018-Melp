@@ -18,6 +18,9 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+/**
+* The RestaurantProfileController class controls the GUI for the Restaurant Profile. 
+*/
 public class RestaurantProfileController {
 	
 	@FXML
@@ -32,7 +35,28 @@ public class RestaurantProfileController {
 	private String restaurant_name;
 	private Restaurant curr_restaurant;
 	private CreateMelpDatabase db = new CreateMelpDatabase();
+	
+    @FXML
+    private ResourceBundle resources;
 
+    @FXML
+    private URL location;
+
+    /**
+    * Constructor for the Restaurant Profile Controller. Initializes instance variables.
+    * @param the name of the restaurant
+    * @throws SQLException
+    */
+	public RestaurantProfileController(String restaurant_name) throws SQLException {
+		this.restaurant_name = restaurant_name;
+		getRestaurantFromDatabase();
+	}
+	
+    /**
+    * Returns a user home
+    * @param the event of the user
+    * @throws IOException
+    */
 	@FXML
 	void returnHome(ActionEvent event) throws IOException {
 		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -43,6 +67,11 @@ public class RestaurantProfileController {
     	next_stage.setScene(scene);
 	}
 	
+    /**
+    * Visits a web site through the link to the restaurant web site
+    * @param the event of the user
+    * @throws IOException
+    */
 	@FXML
 	void visitWebsite(ActionEvent event) {
 		try {
@@ -53,11 +82,6 @@ public class RestaurantProfileController {
 		catch (Exception e) {
 		  e.printStackTrace();
 		}
-	}
-	
-	public RestaurantProfileController(String restaurant_name) throws SQLException {
-		this.restaurant_name = restaurant_name;
-		getRestaurantFromDatabase();
 	}
 	
 	/**
@@ -78,15 +102,8 @@ public class RestaurantProfileController {
 		getRestaurantFromDatabase();
 	}
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-
 	/**
-	 * Initializes
+	 * Initializes the current restaurant page
 	*/
     @FXML
     void initialize() {

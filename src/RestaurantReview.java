@@ -5,7 +5,26 @@ import java.util.Date;
 * The RestaurantReview class creates the Object type RestaurantReview.
 */
 public class RestaurantReview {
-//	private Date dateReviewed;
+	
+	private String content;
+	private int rating;
+	private String restaurantUnderReview;
+	private String reviewer;
+	private String[] vulgarWords = {"crappy", "stupid", "dumb", "idiot", "idiots", "dummy", "dummies", "loser", "losers", "fool", "fools", "ass", "imbecile", "imbeciles"};
+	
+	/**
+	 * Constructor for the RestaurantReview class. Initializes instance variable of name.
+	 * @param the reviewer
+	 * @param the review content
+	 * @param the rating of the restaurant
+	 * @param the name of the restaurant under review
+	 */
+	public RestaurantReview(String reviewer, String content, int rating, String restaurantUnderReview) {
+		this.reviewer = reviewer;
+		this.content = content;
+		this.rating = rating;
+		this.restaurantUnderReview = restaurantUnderReview;
+	}
 	
     /**
     * Gets the content of the review
@@ -54,27 +73,6 @@ public class RestaurantReview {
 	public void setRestaurantUnderReview(String restaurantUnderReview) {
 		this.restaurantUnderReview = restaurantUnderReview;
 	}
-
-	private String content;
-	private int rating;
-	private String restaurantUnderReview;
-	private String reviewer;
-	private String[] vulgarWords = {"crappy", "stupid", "dumb", "idiot", "idiots", "dummy", "dummies", "loser", "losers", "fool", "fools", "ass", "imbecile", "imbeciles"};
-	
-	/**
-	 * Constructor for the RestaurantReview class. Initializes instance variable of name.
-	 * @param the reviewer
-	 * @param the review content
-	 * @param the rating of the restaurant
-	 * @param the name of the restaurant under review
-	 */
-	public RestaurantReview(String reviewer, String content, int rating, String restaurantUnderReview) {
-		this.reviewer = reviewer;
-		this.content = content;
-		this.rating = rating;
-		this.restaurantUnderReview = restaurantUnderReview;
-//		this.dateReviewed = new Date();
-	}
 	
 	/**
 	 * Determines whether a request should be approved or denied for vulgar content
@@ -99,10 +97,13 @@ public class RestaurantReview {
 	
 	/**
 	 * Checks if a review is spam
+	 * @param the current member writing the review
+	 * @param the name if the restaurant under review
 	 * @return true if a review is not spam
 	 */
 	public boolean isNotSpam(MelpMember currentReviewer, String restaurantUnderReview) {
-		if(!currentReviewer.getMy_restaurants().contains(restaurantUnderReview)) {
+		ArrayList<String> currentReviewerRestaurants = currentReviewer.getMy_restaurants();
+		if(!currentReviewerRestaurants.contains(restaurantUnderReview)) {
 				return true;
 		}
 		else {

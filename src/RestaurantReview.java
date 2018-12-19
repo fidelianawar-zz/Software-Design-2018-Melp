@@ -96,7 +96,7 @@ public class RestaurantReview {
 	}
 	
 	/**
-	 * Checks if a review is spam
+	 * Checks if a review is spam - a review is spam if the reviewer has previously reviewed that restaurant already
 	 * @param the current member writing the review
 	 * @param the name if the restaurant under review
 	 * @return true if a review is not spam

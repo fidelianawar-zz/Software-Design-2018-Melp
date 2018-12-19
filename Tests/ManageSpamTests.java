@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 /*
-* This class tests that spam is correctly managed in Melp.
+* This class tests that spam is correctly managed in the Melp system.
 **/
 public class ManageSpamTests {
 
@@ -16,7 +16,7 @@ public class ManageSpamTests {
 	}
 	
 	/*
-	* Tests that a spam review is marked as spam when there is one review pre-existing
+	* Tests that a spam review is marked as spam when there is one review pre-existing 
 	**/
 	@Test
 	public void testSpam2Reviews() {

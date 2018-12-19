@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
-* This class sets up the GUI for a restaurant profile.
+* This class sets up the GUI for a restaurant profile in Melp.
 */
 public class RestaurantProfileGUI extends Application {
 	

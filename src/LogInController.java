@@ -12,7 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
+/**
+* The LogInController class controls the GUI for the LogIn for Melp. 
+*/
 public class LogInController {
 	
 	private String username;
@@ -34,6 +36,11 @@ public class LogInController {
     @FXML
     private TextField username_field;
     
+    /**
+    * Signs up a user
+    * @param the event of the user
+    * @throws IOException
+    */
     @FXML
     void signUp(ActionEvent event) throws IOException {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -44,6 +51,12 @@ public class LogInController {
     	next_stage.setScene(scene);
     }
 
+    /**
+    * Logs a user in
+    * @param the event of the user
+    * @throws SQLException
+    * @throws IOException 
+    */
     @FXML
     void logIn(ActionEvent event) throws SQLException, IOException {
     	username = username_field.getText();
@@ -65,6 +78,11 @@ public class LogInController {
     	}
     }
 
+    /**
+    * Returns a user home
+    * @param the event of the user
+    * @throws IOException
+    */
     @FXML
     void returnHome(ActionEvent event) throws IOException {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -75,6 +93,9 @@ public class LogInController {
     	next_stage.setScene(scene);
     }
     
+    /**
+    * Initializes the Melp LogIn
+    */
     @FXML
     void initialize() {
     	header.setText("Log In to MELP");

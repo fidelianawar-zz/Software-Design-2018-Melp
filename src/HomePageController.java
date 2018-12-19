@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 /**
-* This class controls the GUI for the home page.
+* This class controls the GUI for the home page of Melp.
 */
 public class HomePageController {
 
@@ -39,6 +39,11 @@ public class HomePageController {
     @FXML
 	private ImageView header_image;
 
+    /**
+    * Logs a member in
+    * @param the event of the user
+    * @throws IOException
+    */
     @FXML
     void logIn(ActionEvent event) throws IOException {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -74,6 +79,12 @@ public class HomePageController {
     	}
     }
     
+    /**
+    * Searches the users
+    * @param the event of the user
+    * @throws IOException
+    * @throws SQLException 
+    */
     @FXML
     void searchUsers(ActionEvent event) throws IOException, SQLException {
     	String user_name = user_query.getText();

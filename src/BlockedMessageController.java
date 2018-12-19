@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.stage.Stage;
 
 /**
-* This class controls the GUI for a blocked message.
+* This class controls the GUI for the blocked message.
 */
 public class BlockedMessageController {
 

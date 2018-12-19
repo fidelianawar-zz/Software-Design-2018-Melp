@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * The MelpMember class creates instances of Melp members.
+ * The MelpMember class creates instances of Melp members on Melp.
  */
 public class MelpMember{
 	private String name;

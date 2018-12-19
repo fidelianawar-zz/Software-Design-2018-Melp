@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
-* This class sets up the GUI for blocked message.
+* This class sets up the GUI for the blocked message.
 */
 public class BlockedMessageGUI extends Application {
 	

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
-* The RestaurantReview class creates the Object type RestaurantReview.
+* The RestaurantReview class creates the Object type RestaurantReview for Melp.
 */
 public class RestaurantReview {
 	
@@ -74,14 +74,17 @@ public class RestaurantReview {
 	}
 	
 	/**
-	 * Determines whether a request should be approved or denied for vulgar content
-	 * @return true if the request is approved
+	 * Gets a reviewer
+	 * @return the current review
 	 */
-	
 	public String getReviewer() {
 		return reviewer;
 	}
 	
+	/**
+	 * Determines whether a request should be approved or denied for vulgar content
+	 * @return true if the request is approved
+	 */
 	public boolean approveRequest() {
 		String[] words = content.split(" ");
 		for(String word: words) {
@@ -111,14 +114,18 @@ public class RestaurantReview {
 	}
 	
     /**
-    * Converts the review to a string
-    * @return the String representation of the review
+    * Gets String representation of the review without the member included
+    * @return the String representation of the review without the member included
     */
 	public String getReviewsWithoutMember() {
 		String reviewString = "Reviewed " + restaurantUnderReview + ": " + content + "\n" + "Rating: " + rating + " stars";
 		return reviewString;
 	}
 	
+    /**
+    * Converts the review to a string
+    * @return the String representation of the review
+    */
 	public String toString() {
 		String reviewString = reviewer + " reviewed " + restaurantUnderReview + ": " + content + "\n" + "Rating: " + rating + " stars";
 		return reviewString;

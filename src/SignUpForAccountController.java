@@ -48,6 +48,12 @@ public class SignUpForAccountController {
     	db.addMember(user_name, pass_word);
     }
     
+    /**
+     * checks to see if the user is in the database
+     * @param input - the user to be checked
+     * @return - true if in, false if not
+     * @throws SQLException
+     */
     public boolean userInDatabase(String input) throws SQLException {
     	return db.userInDatabase(input);
     }
@@ -69,6 +75,11 @@ public class SignUpForAccountController {
     	next_stage.setScene(scene);
     }
 
+    /**
+     * Returns the user to the home page
+     * @param event - the button press action
+     * @throws IOException
+     */
     @FXML
     void returnHome(ActionEvent event) throws IOException {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -79,6 +90,12 @@ public class SignUpForAccountController {
     	next_stage.setScene(scene);
     }
     
+    /**
+     * This sees if the user is in the database, and if not creates a new user and adds it to the database
+     * @param event
+     * @throws IOException
+     * @throws SQLException
+     */
     @FXML
     void createUser(ActionEvent event) throws IOException, SQLException {
     	user_name = username.getText();

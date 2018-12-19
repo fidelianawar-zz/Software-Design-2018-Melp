@@ -146,12 +146,6 @@ public class WriteAReviewController {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-//		Stage newStage = new Stage();
-//		newStage.setTitle("Block User");
-//		FXMLLoader loader = new FXMLLoader(getClass().getResource("BlockedMessageUI.fxml"));
-//		Parent root = loader.load();
-//		Scene scene = new Scene(root);
-//		newStage.setScene(scene);
 	}
 
 	/**

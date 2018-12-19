@@ -35,6 +35,11 @@ public class ViewUserProfileController {
     @FXML
     private ImageView user_image;
 
+    /**
+     * returns the user to the home screen
+     * @param event - the action of the button press
+     * @throws IOException
+     */
     @FXML
     void returnHome(ActionEvent event) throws IOException {
     	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -49,6 +54,9 @@ public class ViewUserProfileController {
     	this.current_member = current_member;
     }
     
+    /**
+     * takes the member, and gets all of its revies, and puts them into the user profile page
+     */
     public void initializeReviews() {
     	String all_reviews = "";
     	ArrayList<RestaurantReview> member_reviews = current_member.getMy_reviews();

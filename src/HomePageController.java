@@ -77,7 +77,7 @@ public class HomePageController {
     @FXML
     void searchUsers(ActionEvent event) throws IOException, SQLException {
     	String user_name = user_query.getText();
-    	if (db.searchUsers(user_name)) {
+    	if (db.userInDatabase(user_name)) {
     		MelpMember next_member = db.getMember(user_name);
     		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	    	next_stage.setTitle("User Profile");

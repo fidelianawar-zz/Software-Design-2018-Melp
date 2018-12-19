@@ -174,33 +174,12 @@ public class CreateMelpDatabase {
 		}
 		return output;
 	}
+	
 	/**
-	 * This searches the users and sees if the user is in the database
-	 * @param user_name - the user to search for
+	 * This searches the restaurants and sees if the restaurant is in the database
+	 * @param restaurant_name - the restaurant to search for
 	 * @return true if they are in, false if they are not
 	 */
-	public boolean searchUsers(String user_name) {
-		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select username from users where username='" + user_name + "'");
-			ArrayList<String> users = new ArrayList<String>();
-	    	while (rs.next()) {
-	    		users.add(rs.getString("username"));
-	    	}
-	    	if (users.size() == 0) {
-	    		return false;
-	    	}
-	    	else {
-	    		return true;
-	    	}
-		}
-		catch(SQLException e) {
-    		e.printStackTrace();
-    	}
-		return false;
-	}
-	
 	public boolean searchRestaurants(String restaurant_name) {
 		try {
     		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
@@ -223,6 +202,11 @@ public class CreateMelpDatabase {
 		return false;
 	}
 	
+	/**
+	 * adds a review to the database
+	 * @param reviewer - the member that reviewed
+	 * @param curr_rev - the review to add
+	 */
 	public void addReview(MelpMember reviewer, RestaurantReview curr_rev) {
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
@@ -238,6 +222,12 @@ public class CreateMelpDatabase {
 		}
 	}
 	
+	/**
+	 * checks to see if a user is in the database
+	 * @param input - username to check
+	 * @return true if found, false if not found
+	 * @throws SQLException
+	 */
 	public boolean userInDatabase(String input) throws SQLException {
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
@@ -251,6 +241,11 @@ public class CreateMelpDatabase {
 		}
 	}
 	
+	/**
+	 * This adds a member to the database
+	 * @param user_name - the member's username
+	 * @param pass_word - the member's password
+	 */
 	public void addMember(String user_name, String pass_word) {
 		try {
 			Statement stmt = conn.createStatement();

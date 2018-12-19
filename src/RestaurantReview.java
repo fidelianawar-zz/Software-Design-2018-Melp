@@ -10,7 +10,7 @@ public class RestaurantReview {
 	private int rating;
 	private String restaurantUnderReview;
 	private String reviewer;
-	private String[] vulgarWords = {"crappy", "stupid", "dumb", "idiot", "idiots", "dummy", "dummies", "loser", "losers", "fool", "fools", "ass", "imbecile", "imbeciles"};
+	private String[] vulgarWords = {"crappy", "stupid", "dumb", "idiot", "idiots", "dummy", "dummies", "loser", "losers", "fool", "fools", "ass", "imbecile", "imbeciles", "shit", "shitty", "damn", "bitch"};
 	
 	/**
 	 * Constructor for the RestaurantReview class. Initializes instance variable of name.

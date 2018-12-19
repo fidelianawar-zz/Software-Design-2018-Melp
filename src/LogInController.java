@@ -63,6 +63,16 @@ public class LogInController {
     }
 
     @FXML
+    void returnHome(ActionEvent event) throws IOException {
+    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("MELP!");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageUI.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
+    }
+    
+    @FXML
     void initialize() {
     	header.setText("Log In to MELP");
     }

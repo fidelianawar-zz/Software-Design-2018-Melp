@@ -8,9 +8,9 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
-    <Label layoutX="69.0" layoutY="101.0" text="Restaurant to be Reviewed:" />
-    <TextField fx:id="restaurant" layoutX="489.0" layoutY="101.0" prefWidth="243.0" text="Restaurant Name" />
-    <MenuButton fx:id="star_list" layoutX="489.0" layoutY="197.0" mnemonicParsing="false" prefWidth="245.0">
+    <Label layoutY="101.0" text="Restaurant to be Reviewed:" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="371.0" />
+    <TextField fx:id="restaurant" layoutY="101.0" prefWidth="243.0" text="Restaurant Name" AnchorPane.leftAnchor="489.0" AnchorPane.rightAnchor="68.0" />
+    <MenuButton fx:id="star_list" layoutY="197.0" mnemonicParsing="false" prefWidth="245.0" AnchorPane.leftAnchor="489.0" AnchorPane.rightAnchor="66.0">
       <items>
         <MenuItem mnemonicParsing="false" onAction="#OneStarReview" text="1" />
         <MenuItem mnemonicParsing="false" onAction="#TwoStarReview" text="2" />
@@ -19,10 +19,10 @@
         <MenuItem mnemonicParsing="false" onAction="#FiveStarReview" text="5" />
       </items>
     </MenuButton>
-    <Label layoutX="69.0" layoutY="203.0" text="Restaurant Rating (out of 5)" />
-    <Button layoutX="454.0" layoutY="478.0" mnemonicParsing="false" onAction="#submitRestaurantReview" text="Submit Review" />
-    <TextArea fx:id="review" layoutX="69.0" layoutY="280.0" prefHeight="135.0" prefWidth="663.0" text="Type your restaurant review here" wrapText="true" />
-    <Label fx:id="headerLabel" layoutX="267.0" layoutY="32.0" />
-    <Button layoutX="127.0" layoutY="478.0" mnemonicParsing="false" onAction="#returnToProfile" text="My Profile" />
+    <Label layoutY="203.0" text="Restaurant Rating (out of 5)" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="365.0" />
+    <Button layoutY="478.0" mnemonicParsing="false" onAction="#submitRestaurantReview" text="Submit Review" AnchorPane.leftAnchor="454.0" AnchorPane.rightAnchor="101.0" />
+    <TextArea fx:id="review" layoutY="280.0" prefHeight="135.0" prefWidth="663.0" text="Type your restaurant review here" wrapText="true" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="68.0" />
+    <Label fx:id="headerLabel" layoutY="32.0" prefWidth="797.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" />
+    <Button layoutY="478.0" mnemonicParsing="false" onAction="#returnToProfile" text="My Profile" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="488.0" />
   </children>
 </AnchorPane>

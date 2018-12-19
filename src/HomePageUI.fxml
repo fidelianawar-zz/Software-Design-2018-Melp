@@ -2,17 +2,22 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="343.0" prefWidth="449.9998779296875" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="HomePageController">
+<AnchorPane prefHeight="747.0" prefWidth="449.9998779296875" style="-fx-background-color: white" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="HomePageController">
   <!-- TODO Add Nodes -->
   <children>
-    <Label fx:id="title" alignment="CENTER" layoutY="20.0" prefWidth="447.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
-    <Button layoutY="60.0" mnemonicParsing="false" onAction="#logIn" text="Log In" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="158.0" />
-    <Button layoutY="113.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="147.0" />
-    <Label layoutY="166.0" text="Search for a Restaurant" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="71.0" />
-    <TextField fx:id="restaurant_query" layoutY="206.0" prefWidth="300.9998779296875" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="74.0" />
-    <Button layoutY="252.0" mnemonicParsing="false" onAction="#searchRestaurants" text="Search Restaurants" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="74.0" />
+    <Label fx:id="title" alignment="CENTER" layoutY="269.0" prefWidth="447.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" />
+    <Button layoutY="309.0" mnemonicParsing="false" onAction="#logIn" text="Log In" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="158.0" />
+    <Button layoutY="362.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="147.0" />
+    <Label layoutY="415.0" text="Search for a Restaurant" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="71.0" />
+    <TextField fx:id="restaurant_query" layoutY="455.0" prefWidth="300.9998779296875" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="74.0" />
+    <Button layoutY="501.0" mnemonicParsing="false" onAction="#searchRestaurants" text="Search Restaurants" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="74.0" />
+    <Label layoutX="86.0" layoutY="581.0" text="Search for a Member" />
+    <TextField fx:id="user_query" layoutX="75.0" layoutY="621.0" prefWidth="300.9998779296875" />
+    <Button layoutY="667.0" mnemonicParsing="false" onAction="#searchUsers" text="Search Users" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="116.0" />
+    <ImageView fx:id="header_image" fitHeight="221.99990844726562" fitWidth="421.9998779296875" layoutY="14.0" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
   </children>
 </AnchorPane>

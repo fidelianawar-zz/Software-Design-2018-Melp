@@ -2,6 +2,9 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import javax.swing.ImageIcon;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +23,6 @@ import javafx.stage.Stage;
 public class UserProfileController {
 	
 	private MelpMember current_member;
-	private Label headerLabel;
 	
 	/**
 	* Sets a member to the current member
@@ -68,8 +70,15 @@ public class UserProfileController {
 	 */
     @FXML
     void writeNewReview(ActionEvent event) throws Exception {
-    	Command write_review_command = new WriteReview(event, current_member);
-    	write_review_command.execute();
+    	if (current_member.getStatus()) {
+	    	Command write_review_command = new WriteReview(event, current_member);
+	    	write_review_command.execute();
+    	}
+    	else {
+    		BlockedMessageGUI block = new BlockedMessageGUI();
+			Stage primaryStage = new Stage();
+			block.start(primaryStage);
+    	}
     }
     
     /**
@@ -103,8 +112,8 @@ public class UserProfileController {
     @FXML
     void initialize() {
     	initializeReviews();
-    	File file = new File(current_member.getImage_path());
-    	Image image = new Image(file.toURI().toString());
+    	String imageSource = current_member.getImage_path();
+    	Image image = new Image(imageSource);
     	user_image.setImage(image);
     	username_field.setText("Current Username: " + current_member.getName());
     	password_field.setText("Current Password: " + current_member.getPassword());

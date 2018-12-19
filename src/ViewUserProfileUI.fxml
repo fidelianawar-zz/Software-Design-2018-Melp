@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="597.0" prefWidth="400.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <ImageView fx:id="user_image" fitHeight="236.0" fitWidth="236.0" layoutY="14.0" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="150.0" />
+    <Label fx:id="username_field" layoutY="112.0" prefWidth="136.0" text="" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="14.0" />
+    <TextArea fx:id="reviews" editable="false" layoutY="332.0" prefHeight="168.0" prefWidth="400.0" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Label layoutY="286.0" text="This user's reviews" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="143.0" />
+    <Button layoutY="522.0" mnemonicParsing="false" onAction="#returnHome" text="Return Home" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="86.0" />
+  </children>
+</AnchorPane>

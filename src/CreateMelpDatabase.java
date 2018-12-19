@@ -125,6 +125,48 @@ public class CreateMelpDatabase {
 		stmt.execute("delete from reviews where " + command);
 	}
 	
+	public MelpMember getMember(String input) throws SQLException {
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from users where username = '" + input + "'");
+		rs.next();
+		String username = rs.getString("username");
+		String password = rs.getString("password");
+		MelpMember output = new MelpMember(username, password);
+		rs = stmt.executeQuery("select * from reviews where reviewer = '" + username + "'");
+		while(rs.next()) {
+			String reviewer = rs.getString("reviewer");
+			String restaurant = rs.getString("restaurant");
+			int stars = rs.getInt("stars");
+			String review = rs.getString("review");
+			RestaurantReview current = new RestaurantReview(reviewer, review, stars, restaurant);
+			output.addReviewToMyReviews(current);
+		}
+		return output;
+	}
+	
+	public boolean searchUsers(String user_name) {
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select username from users where username='" + user_name + "'");
+			ArrayList<String> users = new ArrayList<String>();
+	    	while (rs.next()) {
+	    		users.add(rs.getString("username"));
+	    	}
+	    	if (users.size() == 0) {
+	    		return false;
+	    	}
+	    	else {
+	    		return true;
+	    	}
+		}
+		catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+		return false;
+	}
+	
 	public boolean searchRestaurants(String restaurant_name) {
 		try {
     		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
@@ -224,6 +266,6 @@ public class CreateMelpDatabase {
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
 		String concatenate = "('" + name + "', '" + owner + "', '" + location + "', '" + type + "', '" + rating + "', '" + url + "');";
-		stmt.execute("insert into restaurants values " + concatenate);
+		stmt.execute("insert ignore into restaurants values " + concatenate);
 	}
 }

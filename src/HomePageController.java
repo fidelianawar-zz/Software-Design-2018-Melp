@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.sql.SQLException;
 
@@ -26,10 +28,16 @@ public class HomePageController {
     private URL location;
     
     @FXML
+    private TextField user_query;
+    
+    @FXML
     private TextField restaurant_query;
 
     @FXML
     private Label title;
+
+    @FXML
+	private ImageView header_image;
 
     @FXML
     void logIn(ActionEvent event) throws IOException {
@@ -45,7 +53,7 @@ public class HomePageController {
     * Searches the restaurants
     * @param the event of the user
     * @throws IOException
-     * @throws SQLException 
+    * @throws SQLException 
     */
     @FXML
     void searchRestaurants(ActionEvent event) throws IOException, SQLException {
@@ -62,6 +70,26 @@ public class HomePageController {
 	        Parent root = loader.load();
 	        Scene scene = new Scene(root);
 	    	next_stage.setScene(scene);
+    	}
+    }
+    
+    @FXML
+    void searchUsers(ActionEvent event) throws IOException, SQLException {
+    	String user_name = user_query.getText();
+    	if (db.searchUsers(user_name)) {
+    		MelpMember next_member = db.getMember(user_name);
+    		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    	next_stage.setTitle("User Profile");
+	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewUserProfileUI.fxml"));
+	        ViewUserProfileController controller = new ViewUserProfileController();
+	        controller.setMember(next_member);
+	        loader.setController(controller);
+	        Parent root = loader.load();
+	        Scene scene = new Scene(root);
+	    	next_stage.setScene(scene);
+    	}
+    	else {
+    		title.setText("That user doesn't exist");
     	}
     }
 
@@ -85,6 +113,9 @@ public class HomePageController {
     */
     @FXML
     void initialize() {
+    	String imageSource = "https://pbs.twimg.com/profile_images/491531991255244800/SfWumxJP.png";
+    	Image image = new Image(imageSource);
+    	header_image.setImage(image);
     	title.setText("Welcome to Melp!");
     }
 

@@ -8,12 +8,12 @@
 <AnchorPane prefHeight="706.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
-    <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="14.0" layoutY="26.0" prefWidth="472.0" text="Restaurant Name" />
-    <TextArea fx:id="reviews_area" editable="false" layoutX="14.0" layoutY="402.0" prefHeight="216.0" prefWidth="472.0" wrapText="true" />
-    <Label layoutX="14.0" layoutY="362.0" text="Reviews for this Restaurant" />
-    <Button layoutX="250.0" layoutY="632.0" mnemonicParsing="false" text="Post a Review" />
-    <Label layoutX="14.0" layoutY="74.0" text="Description" />
-    <TextArea fx:id="description" editable="false" layoutX="14.0" layoutY="126.0" prefHeight="216.0" prefWidth="472.0" wrapText="true" />
-    <Button layoutX="35.0" layoutY="632.0" mnemonicParsing="false" onAction="#returnHome" text="Home" />
+    <Label alignment="CENTER" contentDisplay="BOTTOM" layoutY="26.0" prefWidth="472.0" text="Restaurant Name" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+    <TextArea fx:id="reviews_area" editable="false" layoutY="402.0" prefHeight="216.0" prefWidth="472.0" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+    <Label layoutY="362.0" text="Reviews for this Restaurant" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="129.0" />
+    <Button layoutY="632.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Post a Review" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="18.0" />
+    <Label layoutY="74.0" text="Description" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="335.0" />
+    <TextArea fx:id="description" editable="false" layoutY="126.0" prefHeight="216.0" prefWidth="472.0" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+    <Button layoutY="632.0" mnemonicParsing="false" onAction="#returnHome" style="-fx-background-color: white;" text="Home" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="334.0" />
   </children>
 </AnchorPane>

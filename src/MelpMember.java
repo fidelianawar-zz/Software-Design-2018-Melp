@@ -12,8 +12,8 @@ public class MelpMember{
 	private ArrayList<RestaurantReview> my_reviews = new ArrayList<RestaurantReview>();
 	private ArrayList<String> my_restaurants = new ArrayList<String>();
 	private String image_path;
-	private boolean memberStatus;
 	private int numOfVulgarPosts;
+	private boolean memberStatus;
 
 	/**
 	 * Constructor for the MelpMember class. Initializes instance variable of name.
@@ -26,7 +26,9 @@ public class MelpMember{
 		this.activeState = new MelpMemberActiveState();
 		this.blockedState = new MelpMemberBlockedState();
 		this.currentState = new MelpMemberActiveState();
-		this.image_path = "";
+		this.image_path = "https://data.whicdn.com/images/298844185/large.jpg?t=1507433077";
+		this.numOfVulgarPosts = 0;
+		this.memberStatus = true;
 	}
 	
 	/**
@@ -144,7 +146,7 @@ public class MelpMember{
 	* @param true if the member has hit the maximum number of vulgar posts
 	*/
 	public boolean maxVulgarPosts() {
-		return numOfVulgarPosts >= 2;
+		return numOfVulgarPosts >= 5;
 	}
 
 	/**

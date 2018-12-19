@@ -56,7 +56,7 @@ public class SignUpForAccountController {
     * Creates a user
     * @param the event of the user
     * @throws IOException
-     * @throws SQLException 
+    * @throws SQLException 
     */
     
     @FXML
@@ -66,6 +66,16 @@ public class SignUpForAccountController {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("LogInUI.fxml"));
     	Parent root = loader.load();
     	Scene scene = new Scene(root);
+    	next_stage.setScene(scene);
+    }
+
+    @FXML
+    void returnHome(ActionEvent event) throws IOException {
+    	Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	next_stage.setTitle("MELP!");
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageUI.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
     	next_stage.setScene(scene);
     }
     

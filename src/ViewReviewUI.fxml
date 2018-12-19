@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
-    <TextArea fx:id="restaurantReview" editable="false" prefHeight="250.0" prefWidth="500.0" wrapText="true" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-    <Button mnemonicParsing="false" onAction="#viewMyProfile" text="View My Profile" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="272.0" />
-    <Button mnemonicParsing="false" onAction="#writeNewReview" text="Write Another Review" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="420.0" />
-    <Button onAction="#viewRestaurantProfile" layoutX="72.0" layoutY="348.0" mnemonicParsing="false" text="View Restaurant Profile" />
+    <TextArea fx:id="restaurantReview" editable="false" layoutY="0.0" prefHeight="250.0" prefWidth="500.0" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Button layoutY="272.0" mnemonicParsing="false" onAction="#viewMyProfile" text="View My Profile" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="122.0" />
+    <Button layoutY="420.0" mnemonicParsing="false" onAction="#writeNewReview" text="Write Another Review" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="81.0" />
+    <Button layoutY="348.0" mnemonicParsing="false" onAction="#viewRestaurantProfile" text="View Restaurant Profile" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="72.0" />
   </children>
 </AnchorPane>

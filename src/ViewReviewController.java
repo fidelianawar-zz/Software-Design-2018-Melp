@@ -68,15 +68,22 @@ public class ViewReviewController {
 	 */
 	@FXML
 	void writeNewReview(ActionEvent event) throws Exception {
-		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	next_stage.setTitle("Write a Review");
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
-        WriteAReviewController controller = new WriteAReviewController();
-        controller.setMember(current_member);
-        loader.setController(controller);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-    	next_stage.setScene(scene);
+		if (current_member.getStatus()) {
+			Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	    	next_stage.setTitle("Write a Review");
+	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("WriteAReviewUI.fxml"));
+	        WriteAReviewController controller = new WriteAReviewController();
+	        controller.setMember(current_member);
+	        loader.setController(controller);
+	        Parent root = loader.load();
+	        Scene scene = new Scene(root);
+	    	next_stage.setScene(scene);
+		}
+		else {
+			BlockedMessageGUI block = new BlockedMessageGUI();
+			Stage primaryStage = new Stage();
+			block.start(primaryStage);
+		}
 	}
 
 	@FXML

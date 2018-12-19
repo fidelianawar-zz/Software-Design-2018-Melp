@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="775.0" prefWidth="639.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="775.0" prefWidth="639.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <!-- TODO Add Nodes -->
   <children>
-    <ImageView fx:id="user_image" fitHeight="262.0" fitWidth="262.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-    <Button layoutX="60.0" layoutY="304.0" mnemonicParsing="false" text="Edit Profile" />
-    <Button layoutX="376.0" layoutY="304.0" mnemonicParsing="false" onAction="#writeNewReview" style="" text="Write Review" />
-    <Label fx:id="username_field" layoutX="320.0" layoutY="78.0" prefWidth="272.0" />
-    <Label fx:id="password_field" layoutX="320.0" layoutY="178.0" prefWidth="264.0" />
-    <Button layoutX="409.0" layoutY="490.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
-    <TextArea fx:id="reviews" editable="false" layoutX="14.0" layoutY="572.0" prefHeight="182.0" prefWidth="611.0" wrapText="true" />
-    <Label layoutX="79.0" layoutY="496.0" text="Your Reviews" />
-    <Button layoutX="369.0" layoutY="396.0" mnemonicParsing="false" onAction="#deleteReview" text="Delete Review" />
+    <ImageView fx:id="user_image" fitHeight="262.0" fitWidth="262.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="353.0" />
+    <Button layoutY="304.0" mnemonicParsing="false" text="Edit Profile" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="386.0" />
+    <Button layoutY="304.0" mnemonicParsing="false" onAction="#writeNewReview" style="" text="Write Review" AnchorPane.leftAnchor="376.0" AnchorPane.rightAnchor="40.0" />
+    <Label fx:id="username_field" alignment="CENTER" layoutY="78.0" prefWidth="272.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="47.0" />
+    <Label fx:id="password_field" alignment="CENTER" layoutY="178.0" prefWidth="264.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="55.0" />
+    <Button layoutY="396.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="405.0" />
+    <TextArea fx:id="reviews" editable="false" layoutY="572.0" prefHeight="182.0" prefWidth="611.0" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+    <Label layoutY="496.0" text="Your Reviews" AnchorPane.leftAnchor="231.5" AnchorPane.rightAnchor="231.5" />
+    <Button layoutY="396.0" mnemonicParsing="false" onAction="#deleteReview" text="Delete Review" AnchorPane.leftAnchor="369.0" AnchorPane.rightAnchor="33.0" />
   </children>
 </AnchorPane>

@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
-* This class creates the Melp Database.
+* This class defines methods for the database functionality.
 */
 public class CreateMelpDatabase {
 	
@@ -25,6 +25,9 @@ public class CreateMelpDatabase {
 	private static final int UNKNOWN_PASSWORD = 2;
 	private Connection conn;
 
+	/**
+	* Loads the database
+	*/
 	public void loadDatabase() {
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/", "root", "root");
@@ -44,6 +47,15 @@ public class CreateMelpDatabase {
 		}
 	}
 
+	/**
+	* Verifies the user credentials
+	* @param the event that occurs when a user performs an action
+	* @param the username of the current user
+	* @param the password of the current user
+	* @throws SQLException
+	* @throws IOException
+	* @return an integer representing the state of the program
+	*/
 	public int checkUserCredentials(ActionEvent event, String username, String password) throws SQLException, IOException {
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
@@ -87,10 +99,16 @@ public class CreateMelpDatabase {
 			//show that username doesn't exist
 			return UNKNOWN_PASSWORD;
 		}
-		return 0;
+		return -1;
 	}
 	
-	public Restaurant getRestaurantsFromDatabase(String restaurant_name) throws SQLException {
+	/**
+	* Gets a restaurant from the database
+	* @param the name of the restaurant
+	* @throws SQLException
+	* @return the restaurant grabbed from the database
+	*/
+	public Restaurant getRestaurantFromDatabase(String restaurant_name) throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
 		String query = "select * from restaurants where RestaurantName = '" + restaurant_name + "'";
@@ -114,6 +132,11 @@ public class CreateMelpDatabase {
 		return curr_restaurant;
 	}
 	
+	/**
+	* Removes a review
+	* @param the review to be removed
+	* @throws SQLException
+	*/
 	public void removeReview(RestaurantReview remove_review) throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();
@@ -125,6 +148,12 @@ public class CreateMelpDatabase {
 		stmt.execute("delete from reviews where " + command);
 	}
 	
+	/**
+	* Gets a member
+	* @param the username of the current user
+	* @throws SQLException
+	* @return the member object associated with the username
+	*/
 	public MelpMember getMember(String input) throws SQLException {
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:" + PORT_NUMBER + "/MelpDatabase?user=root&password=root");
 		Statement stmt = conn.createStatement();

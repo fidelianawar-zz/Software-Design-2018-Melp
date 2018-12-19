@@ -47,7 +47,7 @@ public class RestaurantProfileController {
 	* @throws SQLException
 	*/
 	private void getRestaurantFromDatabase() throws SQLException {
-		curr_restaurant = db.getRestaurantsFromDatabase(restaurant_name);
+		curr_restaurant = db.getRestaurantFromDatabase(restaurant_name);
 	}
 	
 	/**

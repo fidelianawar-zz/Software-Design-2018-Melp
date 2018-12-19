@@ -30,6 +30,11 @@ public class SignUpForAccountGUI extends Application {
 		primaryStage.show();
 	}
 
+	/**
+	 * Returns the user to the home page
+	 * @param event - the button press action
+	 * @throws IOException
+	 */
 	@FXML
 	void returnHome(ActionEvent event) throws IOException {
 		Stage next_stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

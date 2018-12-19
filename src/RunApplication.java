@@ -26,6 +26,9 @@ public class RunApplication extends Application {
         primaryStage.show();
     }
      
+     /**
+      * loads the initial database
+      */
      private void loadDatabase() {
     	 CreateMelpDatabase db = new CreateMelpDatabase();
     	 db.loadDatabase();

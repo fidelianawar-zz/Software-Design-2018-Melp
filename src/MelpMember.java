@@ -7,12 +7,14 @@ public class MelpMember{
 	private String name;
 	private String password;
 	private MelpUserState currentState;
+	@SuppressWarnings("unused")
 	private MelpUserState activeState;
 	private MelpUserState blockedState;
 	private ArrayList<RestaurantReview> my_reviews = new ArrayList<RestaurantReview>();
 	private ArrayList<String> my_restaurants = new ArrayList<String>();
 	private String image_path;
 	private int numOfVulgarPosts;
+	@SuppressWarnings("unused")
 	private boolean memberStatus;
 
 	/**

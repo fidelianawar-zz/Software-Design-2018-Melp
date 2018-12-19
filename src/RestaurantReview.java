@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
-* The RestaurantReview class creates the Object type RestaurantReview.
+* The RestaurantReview class creates the Object type RestaurantReview for Melp.
 */
 public class RestaurantReview {
 	

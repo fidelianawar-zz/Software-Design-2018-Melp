@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * The Restaurant class creates instances of restaurants registered on the system.
+ * The Restaurant class creates instances of restaurants registered on the Melp system.
  */
 public class Restaurant {
 	private String name;

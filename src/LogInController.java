@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
-* The LogInController class controls the GUI for the LogIn. 
+* The LogInController class controls the GUI for the LogIn for Melp. 
 */
 public class LogInController {
 	

@@ -19,7 +19,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 /**
-* The RestaurantProfileController class controls the GUI for the Restaurant Profile. 
+* The RestaurantProfileController class controls the GUI for the Restaurant Profile in Melp. 
 */
 public class RestaurantProfileController {
 	

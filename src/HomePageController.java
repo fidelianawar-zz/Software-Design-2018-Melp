@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 /**
-* This class controls the GUI for the home page.
+* This class controls the GUI for the home page of Melp.
 */
 public class HomePageController {
 

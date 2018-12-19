@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
-* This class defines methods for the database functionality.
+* This class defines methods for the database functionality in our project.
 */
 public class CreateMelpDatabase {
 	

@@ -11,7 +11,7 @@ public class RunApplication extends Application {
 	
 	/**
 	* Puts forth the Melp home page
-	* @param the primary stage
+	* @param the primary stage that shows all the windows
 	* @throws Exception
 	*/
      @Override

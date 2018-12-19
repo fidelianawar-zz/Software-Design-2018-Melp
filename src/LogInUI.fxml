@@ -11,7 +11,6 @@
   <children>
     <Button layoutY="151.0" mnemonicParsing="false" onAction="#logIn" text="Log In" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="183.0" />
     <TextField fx:id="username_field" layoutY="59.0" prefWidth="200.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="73.0" />
-    <TextField fx:id="password_field" layoutY="105.0" prefWidth="200.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="73.0" />
     <Label layoutY="62.0" text="Username:" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="301.0" />
     <Label layoutY="105.0" text="Password" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="316.0" />
     <Button layoutY="261.0" mnemonicParsing="false" onAction="#signUp" text="Sign Up" AnchorPane.leftAnchor="172.5" AnchorPane.rightAnchor="172.5" />
@@ -22,5 +21,6 @@
       </font>
     </Label>
     <Label alignment="CENTER" layoutY="221.0" text="Don't have an Account?" AnchorPane.leftAnchor="92.5" AnchorPane.rightAnchor="91.5" />
+    <PasswordField fx:id="password_field" layoutX="227.0" layoutY="105.0" prefWidth="200.0" />
   </children>
 </AnchorPane>

@@ -8,6 +8,7 @@ public class BlockedUserTest {
 	/*
 	* Tests that the number of vulgar posts is correctly incremented
 	**/
+	@SuppressWarnings("unused")
 	@Test
 	public void checkingNumOfVulgarPosts() {
 		MelpMember newMember = new MelpMember("member1", "password123");
